@@ -24,8 +24,12 @@ export default function AddPropertyForm() {
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries())
         const amenities = formData.getAll("aminity");
-        const ownerData = { ...data, amenities, userId }
-        console.log(ownerData, 'from ameninty');
+        const ownerData = {
+            ...data,
+            amenities,
+            userId,
+            status: 'Pending'
+        }
         const postData = await postOwnerProperty(ownerData)
         console.log(postData, 'from from handle post');
         setLoading(false)

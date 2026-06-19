@@ -26,10 +26,12 @@ const Navbar = () => {
 
     </>
     const LinksProfile = <>
-        <li className={`${pathName === `/deshboard/${session?.user?.role}` && 'border-b-4 pb-1'}`}><Link href={'/add-rooms'}>Dashboard</Link></li>
+        <li className={`${pathName === `/deshboard/${session?.user?.role}` && 'border-b-4 pb-1'}`}><Link href={`/deshboard/${session?.user?.role}`}>Dashboard</Link></li>
 
     </>
-
+    if (pathName.startsWith("/deshboard")) {
+        return null;
+    }
     return (
 
         <div className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 border-b border-cyan-400/20 shadow-lg">

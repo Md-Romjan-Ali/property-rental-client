@@ -21,13 +21,14 @@ export default async function Success({ searchParams }) {
     }
     const bookings = {
         ...metadata,
+        // sessionId: session_id,
         status: 'Pending',
         payStatus: 'paid'
     }
-
+    const booking = await bookingPost(bookings)
+    console.log(booking, 'from paymet succews page');
     if (status === 'complete') {
-        const booking = await bookingPost(bookings)
-        console.log(booking, 'from paymet succews page');
+
         return (
             <section id="success">
                 <p>
