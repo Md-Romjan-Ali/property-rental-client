@@ -5,7 +5,7 @@ import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { useState } from "react";
 import { BiEnvelope } from "react-icons/bi";
 
-export function BookingModal({ userId }) {
+export function BookingModal({ ownerId, price, productId, title }) {
     const [user, setUser] = useState()
     const bookingHandle = async (e) => {
         e.preventDefault()
@@ -15,8 +15,8 @@ export function BookingModal({ userId }) {
         const bookingInfo = Object.fromEntries(formData.entries())
         const bookingData = {
             ...bookingInfo,
-            userId,
-            status: 'Pending'
+
+
         }
         console.log(bookingData, 'from booking');
     }
@@ -61,7 +61,11 @@ export function BookingModal({ userId }) {
                                         <Button slot="close" variant="secondary">
                                             Cancel
                                         </Button>
-                                        <form action="/api/checkout_sessions" method="POST">
+                                        <form action="/payment" method="POST">
+                                            <input type="hidden" name="price" value={price} />
+                                            <input type="hidden" name="title" value={title} />
+                                            <input type="hidden" name="ownerId" value={ownerId} />
+                                            <input type="hidden" name="productId" value={productId} />
                                             <section>
                                                 <Button type="submit" role="link" slot="close">Confirm Book</Button>
                                             </section>

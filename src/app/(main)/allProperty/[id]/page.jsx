@@ -15,7 +15,7 @@ import {
     FaCalendarAlt,
     FaShieldAlt,
 } from "react-icons/fa";
-import { FaStar } from "react-icons/fa6";
+
 
 export default async function PropertyDetails({ params }) {
     const { id } = await params;
@@ -196,7 +196,8 @@ export default async function PropertyDetails({ params }) {
                             </div>
 
                             {/* Booking Button Action */}
-                            <BookingModal userId={property?.userId} />
+                            <BookingModal ownerId={property?.userId} price={property?.
+                                monthlyRent} productId={property?._id} title={property?.propertyName} />
                             <Button variant="secondary" className="w-full py-3">
                                 {/* <Ripple /> */}
                                 Add To Favourite

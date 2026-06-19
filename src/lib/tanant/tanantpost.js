@@ -1,0 +1,12 @@
+const serverUri = process.env.NEXT_PUBLIC_API_URL
+
+export const bookingPost = async (booking) => {
+    const res = await fetch(`${serverUri}/api/postbooking`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(booking)
+    })
+    return await res.json()
+}
