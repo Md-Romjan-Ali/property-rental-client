@@ -5,7 +5,7 @@ import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { useState } from "react";
 import { BiEnvelope } from "react-icons/bi";
 
-export function BookingModal() {
+export function BookingModal({ userId }) {
     const [user, setUser] = useState()
     const bookingHandle = async (e) => {
         e.preventDefault()
@@ -13,7 +13,12 @@ export function BookingModal() {
         setUser(user)
         const formData = new FormData(e.target)
         const bookingInfo = Object.fromEntries(formData.entries())
-        console.log(bookingInfo, 'from booking');
+        const bookingData = {
+            ...bookingInfo,
+            userId,
+            status: 'Pending'
+        }
+        console.log(bookingData, 'from booking');
     }
     return (
         <Modal>
@@ -37,26 +42,31 @@ export function BookingModal() {
                                 <form onSubmit={bookingHandle} className="flex flex-col gap-4">
                                     <TextField className="w-full" value={user?.name} name="name" type="text" variant="secondary">
                                         <Label>Name</Label>
-                                        <Input placeholder="Enter your name" />
+                                        <Input required placeholder="Enter your name" />
                                     </TextField>
                                     <TextField className="w-full" name="email" value={user?.email} type="email" variant="secondary">
                                         <Label>Email</Label>
-                                        <Input placeholder="Enter your email" />
+                                        <Input required placeholder="Enter your email" />
                                     </TextField>
                                     <TextField className="w-full" name="phone" type="tel" variant="secondary">
                                         <Label>Phone</Label>
-                                        <Input placeholder="Enter your phone number" />
+                                        <Input required placeholder="Enter your phone number" />
                                     </TextField>
 
                                     <TextField className="w-full" name="message" variant="secondary">
                                         <Label>Message</Label>
-                                        <Input placeholder="Enter your message" />
+                                        <Input required placeholder="Enter your message" />
                                     </TextField>
                                     <Modal.Footer>
                                         <Button slot="close" variant="secondary">
                                             Cancel
                                         </Button>
-                                        <Button slot="close" type="submit">Send Message</Button>
+                                        <form action="/api/checkout_sessions" method="POST">
+                                            <section>
+                                                <Button type="submit" role="link" slot="close">Confirm Book</Button>
+                                            </section>
+                                        </form>
+
                                     </Modal.Footer>
                                 </form>
                             </Surface>

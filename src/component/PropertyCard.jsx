@@ -13,7 +13,7 @@ export default function PropertyCard({ property }) {
           alt={property.propertyName}
           width={400}
           height={400}
-          className="h-48 w-full object-cover"
+          className="h-100 w-full object-cover"
         />
         <span className="absolute top-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
           {property.propertyType}
@@ -24,7 +24,7 @@ export default function PropertyCard({ property }) {
       <div className="p-4 space-y-3">
 
         {/* Title */}
-        <h2 className="text-lg font-bold text-gray-800 line-clamp-1">
+        <h2 className="text-xl font-bold text-gray-800 line-clamp-1">
           {property.propertyName}
         </h2>
 
@@ -36,9 +36,9 @@ export default function PropertyCard({ property }) {
 
         {/* Rent */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-green-600 font-semibold">
-            <FaMoneyBillWave />
-            <span>৳ {property.monthlyRent} / month</span>
+          <div className="text-gray-400">
+
+            <span><span className="text-2xl text-green-600">৳ {property.monthlyRent}</span> / month</span>
           </div>
         </div>
 

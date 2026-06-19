@@ -20,7 +20,7 @@ import { FaStar } from "react-icons/fa6";
 export default async function PropertyDetails({ params }) {
     const { id } = await params;
     const property = await getSingleOwnerDataById(id);
-
+    console.log(property, 'from');
     const amenitiesList = property.amenities || [];
 
     return (
@@ -196,7 +196,7 @@ export default async function PropertyDetails({ params }) {
                             </div>
 
                             {/* Booking Button Action */}
-                            <BookingModal />
+                            <BookingModal userId={property?.userId} />
                             <Button variant="secondary" className="w-full py-3">
                                 {/* <Ripple /> */}
                                 Add To Favourite
