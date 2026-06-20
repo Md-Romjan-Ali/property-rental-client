@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BiBell } from "react-icons/bi";
 import { BsHouse, BsJournalCheck } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { GiSelfLove } from "react-icons/gi";
 import { HiHomeModern, HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoHome, IoReceiptOutline } from "react-icons/io5";
@@ -30,16 +31,16 @@ export async function Sidebar() {
             { icon: CgProfile, label: "Profile", href: "/deshboard/tanant/profile" },
             { icon: BsHouse, label: "Home", href: "/deshboard/tanant" },
             { icon: BsJournalCheck, label: "My Booking", href: "/deshboard/tanant/myBooking" },
-            { icon: BiBell, label: "Notifications", href: "/deshboard/tanant/notifications" },
+            { icon: GiSelfLove, label: "favourite", href: "/deshboard/tanant/favourite" },
         ],
     };
 
     const navItems = navigatinItem[user?.role || "tanant"];
 
     return (
-        <div className="bg-white min-h-screen w-64 border-r border-slate-200 p-5 shadow-sm">
+        <div className="bg-white md:min-h-screen md:w-64 border-r border-slate-200 shadow-sm pl-5">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 mb-10">
+            <Link href="/" className="hidden md:flex items-center gap-3 mb-10">
                 <div className="p-2 rounded-full bg-cyan-50 border border-cyan-200">
                     <IoHome size={24} className="text-cyan-600" />
                 </div>
@@ -50,7 +51,7 @@ export async function Sidebar() {
             </Link>
 
             {/* Dashboard Title */}
-            <h2 className="text-xl font-semibold text-slate-700 mb-6">
+            <h2 className="text-xl hidden md:flex items-center gap-2 font-semibold text-slate-700 mb-6">
                 <span className="text-cyan-600 text-2xl font-bold capitalize">
                     {user?.role}
                 </span>{" "}
@@ -74,6 +75,7 @@ export async function Sidebar() {
             {/* Mobile Drawer */}
             <div className="md:hidden">
                 <Drawer>
+
                     <Button
                         variant="secondary"
                         className="w-full bg-cyan-50 text-cyan-700 border border-cyan-200"
@@ -92,7 +94,24 @@ export async function Sidebar() {
 
                                 <Drawer.Header>
                                     <Drawer.Heading className="text-slate-800">
-                                        Navigation
+                                        {/* Logo */}
+                                        <Link href="/" className="flex items-center gap-3 mb-10">
+                                            <div className="p-2 rounded-full bg-cyan-50 border border-cyan-200">
+                                                <IoHome size={24} className="text-cyan-600" />
+                                            </div>
+
+                                            <h1 className="text-xl font-bold text-slate-800">
+                                                Rental Home
+                                            </h1>
+                                        </Link>
+
+                                        {/* Dashboard Title */}
+                                        <h2 className="text-xl flex font-semibold text-slate-700 mb-6">
+                                            <span className="text-cyan-600 text-2xl font-bold capitalize">
+                                                {user?.role}
+                                            </span>{" "}
+                                            Dashboard
+                                        </h2>
                                     </Drawer.Heading>
                                 </Drawer.Header>
 

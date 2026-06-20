@@ -1,6 +1,7 @@
 
 import { BookingModal } from "@/component/BookModal";
 import ClientSays from "@/component/ClientSaysForm";
+import AddFavouriteHandle from "@/component/CustomHandle";
 import { getSingleOwnerDataById } from "@/lib/owner/ownerget";
 import { Button } from "@heroui/react";
 import Image from "next/image";
@@ -11,9 +12,7 @@ import {
     FaRulerCombined,
     FaHome,
     FaCheckCircle,
-    FaMoneyBillWave,
-    FaCalendarAlt,
-    FaShieldAlt,
+    FaMoneyBillWave
 } from "react-icons/fa";
 
 
@@ -198,10 +197,7 @@ export default async function PropertyDetails({ params }) {
                             {/* Booking Button Action */}
                             <BookingModal ownerId={property?.userId} price={property?.
                                 monthlyRent} productId={property?._id} title={property?.propertyName} />
-                            <Button variant="secondary" className="w-full py-3">
-                                {/* <Ripple /> */}
-                                Add To Favourite
-                            </Button>
+                            <AddFavouriteHandle property={property} />
 
                             {/* Footer note */}
                             <p className="text-[14px] text-center text-slate-400 leading-relaxed px-2">

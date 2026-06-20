@@ -4,12 +4,12 @@ import React from 'react';
 const DeshboardLayout = ({ children }) => {
     return (
 
-        <div className='max-w-7xl mx-auto w-full'>
+        <div className='w-full'>
             <div className='flex'>
-                <div>
+                <div className='absolute md:static mt-2'>
                     <Sidebar />
                 </div>
-                <div className='flex-1'>
+                <div className='flex-1 mt-10 md:m-10 mx-auto'>
                     {children}
                 </div>
             </div>
