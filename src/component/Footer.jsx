@@ -1,52 +1,76 @@
+import Link from "next/link";
+import { BiVoicemail } from "react-icons/bi";
+import { FaLocationArrow } from "react-icons/fa";
+import { IoHome, IoLocationOutline } from "react-icons/io5";
+import { MdOutlineMailOutline } from "react-icons/md";
+
 export default function Footer() {
     return (
-        <footer className="w-full border-t bg-white mt-10">
-            <div className="max-w-7xl mx-auto px-6 py-10">
+        <footer className="w-full bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 text-white mt-12">
+            <div className="max-w-7xl mx-auto px-6 py-12">
 
                 {/* Top Section */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
                     {/* Brand */}
                     <div>
-                        <h2 className="text-xl font-bold text-gray-800">
-                            Property Dashboard
-                        </h2>
-                        <p className="text-gray-500 mt-2 text-sm">
-                            Manage bookings, owners, tenants, and properties in one place.
+                        <Link href="/" className="flex items-center gap-3">
+                            <div className="p-2 rounded-full bg-cyan-500/20 border border-cyan-300/30">
+                                <IoHome size={26} className="text-cyan-300" />
+                            </div>
+
+                            <h1 className="text-2xl font-bold tracking-wide">
+                                PropertyHub
+                            </h1>
+                        </Link>
+                        <p className="text-slate-200 mt-4 text-sm leading-relaxed max-w-sm">
+                            Manage bookings, owners, tenants, and properties with a modern, fast and clean dashboard experience.
                         </p>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Links */}
                     <div>
-                        <h3 className="font-semibold text-gray-700 mb-3">Quick Links</h3>
-                        <ul className="space-y-2 text-gray-500 text-sm">
-                            <li className="hover:text-black cursor-pointer">Dashboard</li>
-                            <li className="hover:text-black cursor-pointer">Bookings</li>
-                            <li className="hover:text-black cursor-pointer">Owners</li>
-                            <li className="hover:text-black cursor-pointer">Users</li>
+                        <h3 className="text-lg font-semibold text-cyan-200 mb-4">
+                            Quick Links
+                        </h3>
+                        <ul className="space-y-3 text-slate-200 text-sm">
+                            <li>
+                                <Link href={'/'} className="hover:text-white transition cursor-pointer">Home</Link>
+                            </li>
+                            <li>
+                                <Link href={'/allProperty'} className="hover:text-white transition cursor-pointer">All Property</Link>
+                            </li>
+
                         </ul>
                     </div>
 
                     {/* Contact */}
                     <div>
-                        <h3 className="font-semibold text-gray-700 mb-3">Contact</h3>
-                        <p className="text-sm text-gray-500">
-                            Email: support@yourapp.com
+                        <h3 className="text-lg font-semibold text-cyan-200 mb-4">
+                            Contact
+                        </h3>
+                        <p className="text-slate-200 text-sm flex items-center gap-2">
+                            <MdOutlineMailOutline size={25} className="text-cyan-400" /> support@propertyHub.com
                         </p>
-                        <p className="text-sm text-gray-500">
-                            Location: Dhaka, Bangladesh
+                        <p className="text-slate-200 text-sm flex items-center gap-2">
+                            <IoLocationOutline size={25} className="text-cyan-400" /> Dhaka, Bangladesh
                         </p>
                     </div>
                 </div>
 
-                {/* Bottom Section */}
-                <div className="border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                    <p>© {new Date().getFullYear()} Property Dashboard. All rights reserved.</p>
+                {/* Divider */}
+                <div className="border-t border-cyan-400/20 my-10" />
 
-                    <div className="flex gap-4 mt-3 md:mt-0">
-                        <span className="hover:text-black cursor-pointer">Privacy</span>
-                        <span className="hover:text-black cursor-pointer">Terms</span>
-                        <span className="hover:text-black cursor-pointer">Support</span>
+                {/* Bottom */}
+                <div className="flex flex-col md:flex-row justify-between items-center text-slate-300 text-sm">
+                    <p className="text-center md:text-left">
+                        © {new Date().getFullYear()} PropertyHub. All rights reserved.
+                    </p>
+
+                    <div className="flex gap-6 mt-4 md:mt-0 text-sm">
+                        <span className="hover:text-cyan-200 cursor-pointer transition">Privacy</span>
+                        <span className="hover:text-cyan-200 cursor-pointer transition">Terms</span>
+                        <span className="hover:text-cyan-200 cursor-pointer transition">Support</span>
                     </div>
                 </div>
             </div>

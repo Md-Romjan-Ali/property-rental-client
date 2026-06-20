@@ -44,7 +44,7 @@ const Navbar = () => {
                     </div>
 
                     <h1 className="text-2xl font-bold tracking-wide">
-                        Rental Home
+                        PropertyHub
                     </h1>
                 </Link>
 
@@ -59,7 +59,7 @@ const Navbar = () => {
                     {session ? (
                         <>
                             <Dropdown>
-                                <Button aria-label="Menu" variant="secondary">
+                                <Button variant="ghost" aria-label="Menu" >
                                     <Image
                                         width={40}
                                         height={40}
@@ -68,7 +68,7 @@ const Navbar = () => {
                                             session?.user?.image ||
                                             "https://i.pravatar.cc/150"
                                         }
-                                        className="rounded-full border-2 border-cyan-300"
+                                        className="rounded-full border-2 h-12 w-12 border-cyan-300"
                                     />
                                 </Button>
                                 <Dropdown.Popover>
@@ -108,7 +108,7 @@ const Navbar = () => {
                             <div className="relative group">
                             </div>
 
-                            <span className="hidden md:block text-cyan-100 font-medium">
+                            <span className="hidden md:block text-cyan-100 -ml-6 font-medium">
                                 Hi, {name}
                             </span>
                         </>

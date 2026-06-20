@@ -1,3 +1,4 @@
+import Chart from "@/component/Chart";
 import { getOwner, getUserData, totalBookingsData, totalPorperty, } from "@/lib/admin/getadmin";
 
 
@@ -57,6 +58,7 @@ const DashboardCards = async () => {
                     </div>
                 </div>
             ))}
+            <Chart />
         </div>
     );
 };
