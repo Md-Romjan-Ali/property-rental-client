@@ -1,5 +1,6 @@
 import { stripe } from '@/lib/stripe'
 import { bookingPost } from '@/lib/tanant/tanantpost'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
 export default async function Success({ searchParams }) {
@@ -30,13 +31,60 @@ export default async function Success({ searchParams }) {
     if (status === 'complete') {
 
         return (
-            <section id="success">
-                <p>
-                    We appreciate your business! A confirmation email will be sent to{' '}
-                    {customerEmail}. If you have any questions, please email{' '}
-                    <a href="mailto:orders@example.com">orders@example.com</a>.
-                </p>
-            </section>
+            <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
+                <div className="max-w-md w-full bg-white rounded-3xl shadow-xl p-8 text-center">
+                    {/* Success Icon */}
+                    <div className="flex justify-center mb-6">
+                        <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
+                            <svg
+                                className="w-10 h-10 text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={3}
+                                    d="M5 13l4 4L19 7"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h1 className="text-3xl font-bold text-slate-800 mb-3">
+                        Payment Successful
+                    </h1>
+
+                    <p className="text-slate-600 mb-2">
+                        Thank you for your booking.
+                    </p>
+
+                    <p className="text-sm text-slate-500 mb-6">
+                        A confirmation email has been sent to
+                    </p>
+
+                    <p className="font-medium text-emerald-600 break-all mb-8">
+                        {customerEmail}
+                    </p>
+
+                    <div className="flex gap-3">
+                        <a
+                            href="/dashboard/my-bookings"
+                            className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-medium transition"
+                        >
+                            My Bookings
+                        </a>
+
+                        <Link
+                            href="/"
+                            className="flex-1 border border-slate-300 hover:bg-slate-100 py-3 rounded-xl font-medium transition"
+                        >
+                            Home
+                        </Link>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

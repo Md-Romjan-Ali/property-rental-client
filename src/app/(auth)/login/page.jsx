@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const login = () => {
-
+    // const router = useRouter()
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -15,12 +18,13 @@ const login = () => {
 
         });
         console.log(data, error);
-
     };
 
 
-    const handleGoogleLogin = () => {
-        console.log("গুগল লগইন শুরু হচ্ছে...");
+    const handleGoogleLogin = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        });
 
     };
 

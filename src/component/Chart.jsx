@@ -1,4 +1,13 @@
-import React from 'react';
+"use client"
+import {
+    ResponsiveContainer,
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+} from "recharts";
 
 const Chart = () => {
     const monthlyData = [
@@ -16,7 +25,7 @@ const Chart = () => {
         { month: "Dec", earnings: 520000 },
     ];
     return (
-        <div>
+        <div className="mt-10">
             <ResponsiveContainer width="100%" height={350}>
                 <LineChart data={monthlyData}>
                     <CartesianGrid strokeDasharray="3 3" />

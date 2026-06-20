@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
 
 const Register = () => {
-
+    const [loadig, setLoading] = useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
         const formData = new FormData(e.target);
         const user = Object.fromEntries(formData.entries())
         const { data, error } = await authClient.signUp.email({
@@ -17,12 +19,14 @@ const Register = () => {
             // callbackURL: "/",
         });
         console.log(data, error);
-
+        setLoading(false)
     };
 
 
-    const handleGoogleLogin = () => {
-        console.log("গুগল লগইন শুরু হচ্ছে...");
+    const handleGoogleLogin = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        });
 
     };
 
@@ -103,7 +107,10 @@ const Register = () => {
                         type="submit"
                         className="w-full mt-2 py-3 px-4 bg-emerald-500 hover:bg-emerald-400 text-[#0B0F19] font-bold rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 active:scale-[0.98] transition-all duration-200"
                     >
-                        Register
+                        {
+                            loadig ? 'Register...' : 'Register'
+                        }
+
                     </button>
                 </form>
 

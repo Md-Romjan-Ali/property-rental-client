@@ -2,35 +2,29 @@
 import Image from 'next/image';
 import { FaEdit } from 'react-icons/fa';
 
-const UserProfile = () => {
+const UserProfile = ({ user }) => {
     // Your provided user data
-    const user = {
-        _id: {
-            $oid: "6a33aa34d9ba6022dca516d9"
-        },
-        name: "Md Romjan Ali",
-        email: "tanant@gmail.com",
-        emailVerified: false,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv1a3iA8eqCsB_s3Yh8XJDVgN4H1KCwnuaqegb-YG-ynm2uEXXS2smE68B&s=10",
-        createdAt: {
-            $date: "2026-06-18T08:20:04.789Z"
-        },
-        updatedAt: {
-            $date: "2026-06-18T08:20:04.789Z"
-        },
-        role: "tanant",
-        banned: false
-    };
+    // const user = {
+    //     _id: {
+    //         $oid: "6a33aa34d9ba6022dca516d9"
+    //     },
+    //     name: "Md Romjan Ali",
+    //     email: "tanant@gmail.com",
+    //     emailVerified: false,
+    //     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv1a3iA8eqCsB_s3Yh8XJDVgN4H1KCwnuaqegb-YG-ynm2uEXXS2smE68B&s=10",
+    //     createdAt: {
+    //         $date: "2026-06-18T08:20:04.789Z"
+    //     },
+    //     updatedAt: {
+    //         $date: "2026-06-18T08:20:04.789Z"
+    //     },
+    //     role: "tanant",
+    //     banned: false
+    // };
 
-    // Format the ISO date string into a readable date (e.g., "June 18, 2026")
-    const joinDate = new Date(user.createdAt.$date).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
 
     const handleEdit = () => {
-        console.log("Edit profile clicked for:", user._id.$oid);
+        // console.log("Edit profile clicked for:", user._id.$oid);
     };
 
     return (
@@ -43,9 +37,9 @@ const UserProfile = () => {
                 {/* Avatar Setup */}
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                     <Image
-                        className="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg bg-gray-100"
-                        src={user.image}
-                        alt={user.name}
+                        className="w-24 h-24 rounded-xl border-4 border-white object-cover shadow-lg bg-gray-100"
+                        src={user?.image}
+                        alt={user?.name}
                         width={70}
                         height={70}
                     />
@@ -54,14 +48,14 @@ const UserProfile = () => {
                 {/* User Info Breakdown */}
                 <div className="pt-14">
                     <h2 className="text-2xl font-bold text-gray-800 tracking-tight">
-                        {user.name}
+                        {user?.name}
                     </h2>
                     <p className="text-sm text-gray-500 mt-0.5">{user.email}</p>
 
                     {/* Role Badge */}
                     <div className="mt-3">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-600 uppercase tracking-wider border border-indigo-100">
-                            {user.role}
+                            {user?.role}
                         </span>
                     </div>
                 </div>
@@ -71,7 +65,11 @@ const UserProfile = () => {
                 {/* Joining Metadata */}
                 <div className="flex justify-between items-center text-sm px-2 text-gray-600">
                     <span className="font-medium">Joined Platform</span>
-                    <span className="text-gray-500">{joinDate}</span>
+                    <span className="text-gray-500">{new Date(user?.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}</span>
                 </div>
 
                 {/* Edit Profile Action Button */}
