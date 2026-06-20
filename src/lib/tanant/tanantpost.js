@@ -10,3 +10,14 @@ export const bookingPost = async (booking) => {
     })
     return await res.json()
 }
+// add favourite
+export const favouritePost = async (properties) => {
+    const res = await fetch(`${serverUri}/api/favourite`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(properties)
+    })
+    return await res.json()
+}

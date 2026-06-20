@@ -1,10 +1,18 @@
 "use client"
 
+import { userSession } from "@/lib/session";
+import { favouritePost } from "@/lib/tanant/tanantpost";
 import { Button } from "@heroui/react";
 
 const AddFavouriteHandle = ({ property }) => {
-    const favouriteHandle = () => {
-        console.log(property, 'from custom handle');
+    const favouriteHandle = async () => {
+        const user = await userSession()
+        const properties = {
+            ...property,
+            userId: user?.id
+        }
+        const favourite = await favouritePost(properties)
+        console.log(favourite, 'from custom handle');
     }
     return (
 

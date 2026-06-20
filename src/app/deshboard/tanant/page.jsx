@@ -1,11 +1,16 @@
+import { userSession } from "@/lib/session";
+import { getBookingData, getFavourite } from "@/lib/tanant/tanantget";
 import { FaCalendarCheck, FaHeart, FaUserCheck } from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
 
-const TanantHomePage = () => {
+const TanantHomePage = async () => {
+    const user = await userSession()
+    const totalFavourite = await getFavourite(user?.id)
+    const totalBooking = await getBookingData(user?.email)
     const stats = [
         {
             title: "Total Booked",
-            value: 12,
+            value: totalBooking.length,
             icon: FaCalendarCheck,
             bg: "bg-blue-100",
             color: "text-blue-600",
@@ -19,7 +24,7 @@ const TanantHomePage = () => {
         },
         {
             title: "Favorites",
-            value: 8,
+            value: totalFavourite.length,
             icon: FaHeart,
             bg: "bg-pink-100",
             color: "text-pink-600",
@@ -32,6 +37,7 @@ const TanantHomePage = () => {
             color: "text-emerald-600",
         },
     ];
+
     return (
         <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
