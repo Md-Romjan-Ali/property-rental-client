@@ -8,9 +8,10 @@ import { useRouter } from "next/navigation";
 
 const Login = () => {
     const router = useRouter()
-
+    const [loading, setLoading] = useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
         const formData = new FormData(e.target);
         const user = Object.fromEntries(formData.entries())
         const { data, error } = await authClient.signIn.email({
@@ -19,6 +20,8 @@ const Login = () => {
 
         });
         console.log(data, error);
+        setLoading(false)
+        router.push('/')
     };
 
 

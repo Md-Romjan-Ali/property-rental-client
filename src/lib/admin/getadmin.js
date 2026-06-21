@@ -4,10 +4,11 @@ import { headers } from "next/headers"
 import { auth } from "../auth"
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
-const { token } = await auth.api.getToken({
-    headers: await headers()
-})
+
 export const getUserData = async () => {
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/user`, {
         headers: {
             authorization: `Bearer ${token}`
@@ -17,6 +18,9 @@ export const getUserData = async () => {
 }
 // all owner data
 export const getOwner = async (owner) => {
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/owner?role=${owner}`, {
         headers: {
             authorization: `Bearer ${token}`
@@ -26,6 +30,9 @@ export const getOwner = async (owner) => {
 }
 // total property
 export const totalPorperty = async () => {
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/owneralldata`, {
         headers: {
             authorization: `Bearer ${token}`
@@ -35,6 +42,9 @@ export const totalPorperty = async () => {
 }
 // total booking
 export const totalBookingsData = async () => {
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/postbooking`, {
         headers: {
             authorization: `Bearer ${token}`

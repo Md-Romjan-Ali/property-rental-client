@@ -70,10 +70,10 @@ export default async function Success({ searchParams }) {
 
                     <div className="flex gap-3">
                         <a
-                            href="/dashboard/my-bookings"
+                            href="/deshboard/tanant"
                             className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-medium transition"
                         >
-                            My Bookings
+                            Go to Deshboard
                         </a>
 
                         <Link

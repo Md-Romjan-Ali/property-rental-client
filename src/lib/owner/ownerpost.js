@@ -4,10 +4,10 @@ import { headers } from "next/headers"
 import { auth } from "../auth"
 
 const nextUri = process.env.NEXT_PUBLIC_API_URL
-const token = await auth.api.getToken({
-    headers: await headers()
-})
 export const postOwnerProperty = async (ownerData) => {
+    const token = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${nextUri}/api/ownerpost`, {
         method: "POST",
         headers: {
@@ -20,6 +20,9 @@ export const postOwnerProperty = async (ownerData) => {
 }
 // client ssays
 export const clientSays = async (clientSay) => {
+    const token = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${nextUri}/api/clientsays`, {
         method: "POST",
         headers: {

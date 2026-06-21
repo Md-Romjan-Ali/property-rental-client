@@ -1,9 +1,9 @@
 import React from 'react';
 import PropertyCard from './PropertyCard';
-import { getOwnerData } from '@/lib/owner/ownerget';
+import { getOwnerlimitdata } from '@/lib/owner/ownerget';
 
 const Baner = async () => {
-    const allProperty = await getOwnerData();
+    const allProperty = await getOwnerlimitdata();
 
     return (
         <div className='max-w-7xl mx-auto my-10 px-4'>

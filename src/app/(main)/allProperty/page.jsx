@@ -1,10 +1,12 @@
+
 import PropertyCard from '@/component/PropertyCard';
 import SearchSection from '@/component/SearchSection';
-import { getOwnerData } from '@/lib/owner/ownerget';
-import React from 'react';
+import { getOwnerlimitdata } from '@/lib/owner/ownerget';
 
-const AllPropertyPage = async () => {
-    const properties = await getOwnerData()
+const AllPropertyPage = async ({ searchParams }) => {
+    const params = await searchParams;
+    console.log(params, 'from all age');
+    const properties = await getOwnerlimitdata(params?.page)
     console.log(properties, 'from properieys');
     return (
         <div className='pt-10 max-w-7xl mx-auto'>

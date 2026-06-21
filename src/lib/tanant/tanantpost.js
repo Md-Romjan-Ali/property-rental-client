@@ -3,10 +3,11 @@ import { headers } from "next/headers"
 import { auth } from "../auth"
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
-const token = await auth.api.getToken({
-    headers: await headers()
-})
+
 export const bookingPost = async (booking) => {
+    const token = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/postbooking`, {
         method: "POST",
         headers: {
@@ -19,6 +20,9 @@ export const bookingPost = async (booking) => {
 }
 // add favourite
 export const favouritePost = async (properties) => {
+    const token = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/favourite`, {
         method: "POST",
         headers: {

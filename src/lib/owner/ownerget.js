@@ -2,8 +2,6 @@
 import { headers } from "next/headers";
 import { auth } from "../auth";
 
-
-
 const serverUri = process.env.NEXT_PUBLIC_API_URL
 export const getOwnerData = async (userId) => {
     const token = await auth.api.getToken({
@@ -14,6 +12,11 @@ export const getOwnerData = async (userId) => {
             authorization: `Bearer ${token?.token}`
         }
     })
+    return await res.json()
+}
+export const getOwnerlimitdata = async (page) => {
+
+    const res = await fetch(`${serverUri}/api/ownerlimidata?page=${page}`)
     return await res.json()
 }
 // get single dat by id
