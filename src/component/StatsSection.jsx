@@ -1,57 +1,71 @@
-import { getOwner, getUserData, totalBookingsData, totalPorperty } from "@/lib/admin/getadmin";
-import { FaHome, FaUsers, FaCalendarCheck, FaUserTie } from "react-icons/fa";
+import {
+    FaHome,
+    FaHeart,
+    FaUserShield,
+} from "react-icons/fa";
+import { MdPayments } from "react-icons/md";
 
-export default async function StatsSection() {
-    const getTotalUsers = await getUserData()
-    const getTotalOwners = await getOwner('owner')
-    const totalBookings = await totalBookingsData()
-    const getTtotalProperty = await totalPorperty()
+const features = [
+    {
+        icon: <FaHome size={28} />,
+        title: "Verified Properties",
+        description:
+            "Browse trusted and verified rental properties with complete details.",
+    },
+    {
+        icon: <MdPayments size={28} />,
+        title: "Secure Payments",
+        description:
+            "Pay rent securely through Stripe with a smooth checkout experience.",
+    },
+    {
+        icon: <FaHeart size={28} />,
+        title: "Favorites System",
+        description:
+            "Save your favorite properties and access them anytime.",
+    },
+    {
+        icon: <FaUserShield size={28} />,
+        title: "Role-Based Access",
+        description:
+            "Separate dashboards and permissions for tenants and property owners.",
+    },
+];
+
+export default function WhyChoosePropertyHub() {
     return (
-        <section className="w-full py-16 bg-white">
-            <div className="max-w-6xl mx-auto px-6">
+        <section className="py-20 bg-base-100">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-14">
+                    <h2 className="text-4xl font-bold mb-4">
+                        Why Choose{" "}
+                        <span className="text-primary">PropertyHub?</span>
+                    </h2>
+                    <p className="text-gray-500 max-w-2xl mx-auto">
+                        A modern platform that makes renting and managing properties
+                        simple, secure, and efficient.
+                    </p>
+                </div>
 
-                <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
-                    Platform Overview
-                </h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {features.map((feature, index) => (
+                        <div
+                            key={index}
+                            className="group p-8 rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
+                        >
+                            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-5 transition-all duration-300 group-hover:bg-white/20">
+                                {feature.icon}
+                            </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                            <h3 className="text-xl font-semibold mb-3">
+                                {feature.title}
+                            </h3>
 
-                    {/* Total Properties */}
-                    <div className="p-6 bg-gray-50 rounded-xl shadow-sm text-center
-            hover:shadow-lg hover:-translate-y-1 transition duration-300">
-
-                        <FaHome className="text-3xl text-blue-600 mx-auto" />
-                        <h3 className="text-2xl font-bold mt-3 text-gray-800">{getTtotalProperty.length}</h3>
-                        <p className="text-sm text-gray-500">Total Properties</p>
-                    </div>
-
-                    {/* Total Users */}
-                    <div className="p-6 bg-gray-50 rounded-xl shadow-sm text-center
-            hover:shadow-lg hover:-translate-y-1 transition duration-300">
-
-                        <FaUsers className="text-3xl text-green-600 mx-auto" />
-                        <h3 className="text-4xl font-bold mt-3 text-gray-800">{getTotalUsers.length}</h3>
-                        <p className="text-sm text-gray-500">Registered Users</p>
-                    </div>
-
-                    {/* Bookings */}
-                    <div className="p-6 bg-gray-50 rounded-xl shadow-sm text-center
-            hover:shadow-lg hover:-translate-y-1 transition duration-300">
-
-                        <FaCalendarCheck className="text-3xl text-purple-600 mx-auto" />
-                        <h3 className="text-4xl font-bold mt-3 text-gray-800">{totalBookings.length}</h3>
-                        <p className="text-sm text-gray-500">Total Bookings</p>
-                    </div>
-
-                    {/* Owners */}
-                    <div className="p-6 bg-gray-50 rounded-xl shadow-sm text-center
-            hover:shadow-lg hover:-translate-y-1 transition duration-300">
-
-                        <FaUserTie className="text-3xl text-orange-600 mx-auto" />
-                        <h3 className="text-4xl font-bold mt-3 text-gray-800">{getTotalOwners.length}</h3>
-                        <p className="text-sm text-gray-500">Property Owners</p>
-                    </div>
-
+                            <p className="text-gray-500 transition-colors duration-300">
+                                {feature.description}
+                            </p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

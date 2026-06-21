@@ -48,6 +48,7 @@ export default function AddPropertyForm() {
                             Property Title
                         </label>
                         <input
+                            required
                             name="propertyName"
                             type="text"
                             placeholder="Luxury Apartment in Dhaka"
@@ -60,6 +61,7 @@ export default function AddPropertyForm() {
                             Location
                         </label>
                         <input
+                            required
                             name="location"
                             type="text"
                             placeholder="Khulna, Bangladesh"
@@ -74,7 +76,7 @@ export default function AddPropertyForm() {
                         <label className="block text-sm font-medium mb-2">
                             Property Type
                         </label>
-                        <select name="propertyType" className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-500">
+                        <select required name="propertyType" className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-500">
                             <option>Select Type</option>
                             <option>Apartment</option>
                             <option>House</option>
@@ -86,7 +88,7 @@ export default function AddPropertyForm() {
                         <label className="block text-sm font-medium mb-2">
                             Rent Type
                         </label>
-                        <select name="rentyType" className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-500">
+                        <select required name="rentyType" className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-500">
                             <option>Select Rent Type</option>
                             <option>Monthly</option>
                             <option>Yearly</option>
@@ -101,6 +103,7 @@ export default function AddPropertyForm() {
                             Monthly Rent
                         </label>
                         <input
+                            required
                             name="monthlyRent"
                             type="number"
                             placeholder="15000"
@@ -113,6 +116,7 @@ export default function AddPropertyForm() {
                             Property Size (sqft)
                         </label>
                         <input
+                            required
                             name="size"
                             type="number"
                             placeholder="1200"
@@ -128,6 +132,7 @@ export default function AddPropertyForm() {
                             Bedrooms
                         </label>
                         <input
+                            required
                             name="bedrooms"
                             type="number"
                             placeholder="2"
@@ -140,6 +145,7 @@ export default function AddPropertyForm() {
                             Bathrooms
                         </label>
                         <input
+                            required
                             name="bathrooms"
                             type="number"
                             placeholder="2"
@@ -155,6 +161,7 @@ export default function AddPropertyForm() {
                             Extra Features
                         </label>
                         <input
+                            required
                             name="extraFeature"
                             type="text"
                             placeholder="Balcony, Pet Friendly, Rooftop, CCTV"
@@ -167,6 +174,7 @@ export default function AddPropertyForm() {
                             Image URL
                         </label>
                         <input
+                            required
                             name="image"
                             type="url"
                             placeholder="Cloudinary / ImgBB URL"
@@ -181,6 +189,7 @@ export default function AddPropertyForm() {
                         Description
                     </label>
                     <textarea
+                        required
                         name="description"
                         rows="4"
                         placeholder="Write property details..."

@@ -1,11 +1,15 @@
-import { authClient } from "../auth-client"
+import { headers } from "next/headers";
+import { auth } from "../auth";
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
-const { data } = await authClient.token()
+const token = await auth.api.getToken({
+    headers: await headers()
+})
+console.log(token, 'from wsnerget');
 export const getOwnerData = async (userId) => {
     const res = await fetch(`${serverUri}/api/ownerpost?userId=${userId}`, {
         headers: {
-            authorization: `Bearer ${data.token}`
+            authorization: `Bearer ${token?.token}`
         }
     })
     return await res.json()
@@ -24,7 +28,7 @@ export const reviewFromCliet = async () => {
 export const getBookedData = async (ownerId) => {
     const res = await fetch(`${serverUri}/api/postbooking?ownerId=${ownerId}`, {
         headers: {
-            authorization: `Bearer ${data.token}`
+            authorization: `Bearer ${token?.token}`
         }
     })
     return await res.json()

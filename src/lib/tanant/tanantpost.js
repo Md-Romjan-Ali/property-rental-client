@@ -1,7 +1,11 @@
+import { headers } from "next/headers"
+import { auth } from "../auth"
 import { authClient } from "../auth-client"
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
-const { data: token } = await authClient.token()
+const token = await auth.api.getToken({
+    headers: await headers()
+})
 export const bookingPost = async (booking) => {
     const res = await fetch(`${serverUri}/api/postbooking`, {
         method: "POST",

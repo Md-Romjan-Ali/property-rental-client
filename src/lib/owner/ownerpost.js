@@ -1,15 +1,14 @@
 import { authClient } from "../auth-client";
-
-
 const nextUri = process.env.NEXT_PUBLIC_API_URL
-const { data } = await authClient.token()
-console.log(data.token, 'from post api');
+const token = await auth.api.getToken({
+    headers: await headers()
+})
 export const postOwnerProperty = async (ownerData) => {
     const res = await fetch(`${nextUri}/api/ownerpost`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
-            authorization: `Bearer ${data.token}`
+            authorization: `Bearer ${token?.token}`
         },
         body: JSON.stringify(ownerData)
     })
@@ -20,7 +19,8 @@ export const clientSays = async (clientSay) => {
     const res = await fetch(`${nextUri}/api/clientsays`, {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token?.token}`
         },
         body: JSON.stringify(clientSay)
     })

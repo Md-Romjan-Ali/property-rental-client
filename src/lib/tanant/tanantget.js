@@ -1,11 +1,14 @@
-import { authClient } from "../auth-client"
+import { headers } from "next/headers"
+import { auth } from "../auth"
 
 const serverUrl = process.env.NEXT_PUBLIC_API_URL
-const { data } = await authClient.token()
+const token = await auth.api.getToken({
+    headers: await headers()
+})
 export const getBookingData = async (email) => {
     const res = await fetch(`${serverUrl}/api/postbooking?email=${email}`, {
         headers: {
-            authorization: `Bearer ${data.token}`
+            authorization: `Bearer ${token?.token}`
         }
     })
     return await res.json()
@@ -14,7 +17,7 @@ export const getBookingData = async (email) => {
 export const getFavourite = async (userId) => {
     const res = await fetch(`${serverUrl}/api/favourite?userId=${userId}`, {
         headers: {
-            authorization: `Bearer ${data.token}`
+            authorization: `Bearer ${token?.token}`
         }
     })
     return await res.json()
