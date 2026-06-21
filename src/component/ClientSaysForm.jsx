@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa6';
 
 const ClientSays = () => {
-    const [loadin, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const clientHandle = async (e) => {
         e.preventDefault()
         setLoading(true)
@@ -66,10 +66,10 @@ const ClientSays = () => {
                     {/* Submit */}
                     <button
                         type="submit"
-                        className="w-full mt-3 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition"
+                        className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 rounded-lg transition"
                     >
                         {
-                            loadin ? 'posting..' : 'Submit Review'
+                            loading ? 'posting..' : 'Submit Review'
                         }
 
                     </button>

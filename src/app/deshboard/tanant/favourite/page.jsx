@@ -1,3 +1,5 @@
+import FavouriteDelete from "@/component/alldeleteHandle/Favourite";
+import DeleteHandle from "@/component/DeleteHandle";
 import { userSession } from "@/lib/session";
 import { getFavourite } from "@/lib/tanant/tanantget";
 import Image from "next/image";
@@ -64,14 +66,9 @@ const FavouritePage = async () => {
 
                                 {/* Action */}
                                 <td className="p-3 text-center">
-                                    <Link href={`/allProperty/${item.id}`}>
+                                    <FavouriteDelete id={item?._id} />
 
-                                    </Link>
-                                    <button className="text-red-500 hover:text-red-700 text-lg">
-                                        <FaTrash />
-                                    </button>
                                 </td>
-
                             </tr>
                         ))}
                     </tbody>

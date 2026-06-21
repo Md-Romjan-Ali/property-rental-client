@@ -30,7 +30,7 @@ const AllPropertyPage = async ({ searchParams }) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                {properties.map((property) => (
+                {properties?.map((property) => (
                     <PropertyCard key={property._id} property={property} />
                 ))}
             </div>

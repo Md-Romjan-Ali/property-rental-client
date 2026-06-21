@@ -1,30 +1,32 @@
+import DeleteHandle from "@/component/DeleteHandle";
 import { userSession } from "@/lib/session";
 import { getBookingData } from "@/lib/tanant/tanantget";
 import {
     FaCheckCircle,
     FaTimesCircle,
-    FaClock,
+
 } from "react-icons/fa";
 
-const statusStyles = {
+// const statusStyles = {
 
-    Pending: {
-        className: "bg-yellow-100 text-yellow-700",
-        icon: <FaClock className="text-yellow-500" />,
-    },
-    Approved: {
-        className: "bg-green-100 text-green-700",
-        icon: <FaCheckCircle className="text-green-500" />,
-    },
-    Rejected: {
-        className: "bg-red-100 text-red-700",
-        icon: <FaTimesCircle className="text-red-500" />,
-    },
-};
+//     Pending: {
+//         className: "bg-yellow-100 text-yellow-700",
+//         icon: <FaClock className="text-yellow-500" />,
+//     },
+//     Approved: {
+//         className: "bg-green-100 text-green-700",
+//         icon: <FaCheckCircle className="text-green-500" />,
+//     },
+//     Rejected: {
+//         className: "bg-red-100 text-red-700",
+//         icon: <FaTimesCircle className="text-red-500" />,
+//     },
+// };
 
 export default async function RequestTable() {
     const user = await userSession()
     const requests = await getBookingData(user?.email)
+    console.log(requests, 'from my bookig');
     return (
         <div className="overflow-x-auto mx-auto md:ml-10 my-10 rounded-xl border border-slate-200 bg-white shadow-sm">
             <table className="min-w-full">
@@ -41,6 +43,9 @@ export default async function RequestTable() {
                         </th>
                         <th className="px-5 py-4 text-left text-xl font-semibold text-slate-700">
                             Status
+                        </th>
+                        <th className="px-5 py-4 text-left text-xl font-semibold text-slate-700">
+                            Action
                         </th>
                     </tr>
                 </thead>
@@ -61,7 +66,7 @@ export default async function RequestTable() {
 
                             <td className="px-5 py-4">
                                 <span
-                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${item.payStatus === "paid"
+                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-semibold ${item.payStatus === "paid"
                                         ? "bg-green-100 text-green-700"
                                         : "bg-red-100 text-red-700"
                                         }`}
@@ -78,12 +83,13 @@ export default async function RequestTable() {
 
                             <td className="px-5 py-4">
                                 <span
-                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${statusStyles[item.status]?.className
-                                        }`}
+                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold `}
                                 >
-                                    {statusStyles[item.status]?.icon}
                                     {item.status}
                                 </span>
+                            </td>
+                            <td className="px-5 py-4">
+                                <DeleteHandle id={item._id} />
                             </td>
                         </tr>
                     ))}

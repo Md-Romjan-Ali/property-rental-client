@@ -3,7 +3,8 @@ import PropertyCard from './PropertyCard';
 import { getOwnerlimitdata } from '@/lib/owner/ownerget';
 
 const Baner = async () => {
-    const allProperty = await getOwnerlimitdata();
+    const properties = await getOwnerlimitdata();
+    const allProperty = properties.data
 
     return (
         <div className='max-w-7xl mx-auto my-10 px-4'>
@@ -18,9 +19,9 @@ const Baner = async () => {
 
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
                 {
-                    allProperty.map(property => (
+                    allProperty?.map(property => (
                         <PropertyCard
-                            key={property._id}
+                            key={property?._id}
                             property={property}
                         />
                     ))
