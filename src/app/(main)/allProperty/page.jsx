@@ -1,4 +1,5 @@
 
+import { PaginationBasic } from '@/component/Pagination';
 import PropertyCard from '@/component/PropertyCard';
 import SearchSection from '@/component/SearchSection';
 import { getOwnerlimitdata } from '@/lib/owner/ownerget';
@@ -6,8 +7,9 @@ import { getOwnerlimitdata } from '@/lib/owner/ownerget';
 const AllPropertyPage = async ({ searchParams }) => {
     const params = await searchParams;
     console.log(params, 'from all age');
-    const properties = await getOwnerlimitdata(params?.page)
-    console.log(properties, 'from properieys');
+    const property = await getOwnerlimitdata(params?.page)
+    const properties = property.data
+    console.log(properties, 'from and ', property);
     return (
         <div className='pt-10 max-w-7xl mx-auto'>
 
@@ -32,6 +34,7 @@ const AllPropertyPage = async ({ searchParams }) => {
                     <PropertyCard key={property._id} property={property} />
                 ))}
             </div>
+            <PaginationBasic property={property} />
         </div>
     );
 };
