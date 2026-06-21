@@ -1,12 +1,32 @@
 import React from 'react';
 import PropertyCard from './PropertyCard';
+import { getOwnerData } from '@/lib/owner/ownerget';
 
-const Baner = () => {
+const Baner = async () => {
+    const allProperty = await getOwnerData();
 
     return (
-        <div>
-            <h1>Avaible Home not hare if you find more Home click all property</h1>
-            <PropertyCard />
+        <div className='max-w-7xl mx-auto my-10 px-4'>
+
+            <h1 className='text-3xl md:text-4xl font-bold text-center text-gray-800'>
+                Available Homes
+            </h1>
+
+            <p className='text-center text-gray-500 mt-2 mb-8'>
+                Explore verified properties and find your perfect home easily.
+            </p>
+
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+                {
+                    allProperty.map(property => (
+                        <PropertyCard
+                            key={property._id}
+                            property={property}
+                        />
+                    ))
+                }
+            </div>
+
         </div>
     );
 };

@@ -1,10 +1,14 @@
+"use client"
 import Link from "next/link";
-import { BiVoicemail } from "react-icons/bi";
-import { FaLocationArrow } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 import { IoHome, IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
 
 export default function Footer() {
+    const pathName = usePathname()
+    if (pathName.startsWith("/deshboard")) {
+        return null
+    }
     return (
         <footer className="w-full bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 text-white mt-12">
             <div className="max-w-7xl mx-auto px-6 py-12">

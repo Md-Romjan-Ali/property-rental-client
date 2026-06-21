@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaMoneyBillWave } from "react-icons/fa";
 
 export default function PropertyCard({ property }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-transparent hover:border-blue-500 hover:shadow-xl transition-all duration-300">
 
       {/* Image */}
       <div className="relative">
@@ -13,7 +13,7 @@ export default function PropertyCard({ property }) {
           alt={property.propertyName}
           width={400}
           height={400}
-          className="h-100 w-full object-cover"
+          className="h-60 w-full object-cover"
         />
         <span className="absolute top-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
           {property.propertyType}

@@ -9,7 +9,7 @@ export default function NotFound() {
                 </h1>
 
                 <h2 className="text-3xl font-bold text-slate-800 mb-3">
-                    Property Not Found
+                    Page Not Found
                 </h2>
 
                 <p className="text-slate-600 mb-8">
@@ -26,7 +26,7 @@ export default function NotFound() {
                     </Link>
 
                     <Link
-                        href="/all-property"
+                        href="/allProperty"
                         className="px-6 py-3 border border-slate-300 rounded-xl font-medium hover:bg-slate-100 transition"
                     >
                         Browse Properties

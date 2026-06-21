@@ -6,8 +6,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 
-const login = () => {
-    // const router = useRouter()
+const Login = () => {
+    const router = useRouter()
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -122,4 +123,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;

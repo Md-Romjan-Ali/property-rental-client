@@ -38,28 +38,32 @@ const DashboardCards = async () => {
     ];
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-4 md:p-8">
-            {cards.map((card, index) => (
-                <div
-                    key={index}
-                    className="bg-white rounded-xl shadow-md p-5 flex items-center justify-between hover:shadow-lg transition"
-                >
-                    {/* Left Content */}
-                    <div>
-                        <p className="text-gray-500 text-sm">{card.title}</p>
-                        <h2 className="text-2xl font-bold">{card.value}</h2>
-                    </div>
-
-                    {/* Icon */}
+        <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-4 md:p-8">
+                {cards.map((card, index) => (
                     <div
-                        className={`text-white text-2xl p-3 rounded-full ${card.color}`}
+                        key={index}
+                        className="bg-white rounded-xl shadow-md p-5 flex items-center justify-between hover:shadow-lg transition"
                     >
-                        {card.icon}
+                        {/* Left Content */}
+                        <div>
+                            <p className="text-gray-500 text-sm">{card.title}</p>
+                            <h2 className="text-2xl font-bold">{card.value}</h2>
+                        </div>
+
+                        {/* Icon */}
+                        <div
+                            className={`text-white text-2xl p-3 rounded-full ${card.color}`}
+                        >
+                            {card.icon}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+
+            </div>
             <Chart />
         </div>
+
     );
 };
 

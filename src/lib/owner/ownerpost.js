@@ -1,4 +1,8 @@
-import { authClient } from "../auth-client";
+"use server"
+
+import { headers } from "next/headers"
+import { auth } from "../auth"
+
 const nextUri = process.env.NEXT_PUBLIC_API_URL
 const token = await auth.api.getToken({
     headers: await headers()
