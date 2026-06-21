@@ -1,6 +1,13 @@
+import { authClient } from "../auth-client"
+
 const serverUri = process.env.NEXT_PUBLIC_API_URL
+const { data } = await authClient.token()
 export const getOwnerData = async (userId) => {
-    const res = await fetch(`${serverUri}/api/ownerpost?userId=${userId}`)
+    const res = await fetch(`${serverUri}/api/ownerpost?userId=${userId}`, {
+        headers: {
+            authorization: `Bearer ${data.token}`
+        }
+    })
     return await res.json()
 }
 // get single dat by id
@@ -15,6 +22,10 @@ export const reviewFromCliet = async () => {
 }
 // my property booked
 export const getBookedData = async (ownerId) => {
-    const res = await fetch(`${serverUri}/api/postbooking?ownerId=${ownerId}`)
+    const res = await fetch(`${serverUri}/api/postbooking?ownerId=${ownerId}`, {
+        headers: {
+            authorization: `Bearer ${data.token}`
+        }
+    })
     return await res.json()
 }

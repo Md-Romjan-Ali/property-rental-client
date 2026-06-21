@@ -28,7 +28,7 @@ const SearchSection = () => {
             >
                 {/* Search by Location */}
                 <div>
-                    <label className="text-lg text-gray-300 font-semibold">
+                    <label className="text-lg text-gray-800 font-semibold">
                         Search by Location
                     </label>
 
@@ -49,7 +49,7 @@ const SearchSection = () => {
 
                 {/* Select Property Type */}
                 <div>
-                    <label className="text-lg text-gray-300 font-semibold">
+                    <label className="text-lg text-gray-800 font-semibold">
                         Property Type
                     </label>
                     <select
@@ -67,7 +67,7 @@ const SearchSection = () => {
 
                 {/* Sort by Price */}
                 <div>
-                    <label className="text-lg text-gray-300 font-semibold">
+                    <label className="text-lg text-gray-800 font-semibold">
                         Sort By Price
                     </label>
                     <select

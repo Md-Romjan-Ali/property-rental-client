@@ -1,5 +1,4 @@
 "use client";
-
 import { postOwnerProperty } from "@/lib/owner/ownerpost";
 import { userSession } from "@/lib/session";
 import { useState } from "react";
@@ -30,6 +29,7 @@ export default function AddPropertyForm() {
             userId,
             status: 'Pending'
         }
+
         const postData = await postOwnerProperty(ownerData)
         console.log(postData, 'from from handle post');
         setLoading(false)
