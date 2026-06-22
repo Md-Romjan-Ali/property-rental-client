@@ -1,25 +1,11 @@
+import DeleteUsers from "@/component/alldeleteHandle/DeleteUsers";
+import UserRoleUpdate from "@/component/updateHandle/UserRoleUpdate";
 import { getUserData } from "@/lib/admin/getadmin";
 import Image from "next/image";
 
 
 export default async function UserTable() {
     const allusers = await getUserData()
-
-    //   const handleRoleChange = (id, newRole) => {
-    //     const updated = data.map((user) =>
-    //       user._id.$oid === id ? { ...user, role: newRole } : user
-    //     );
-    //     setData(updated);
-
-    //     // এখানে API call করতে পারো
-    //     console.log("Update role:", id, newRole);
-    //   };
-
-    //   const handleAction = (id) => {
-    //     console.log("Action clicked for:", id);
-    //     // delete / ban / edit etc
-    //   };
-
     return (
         <div className="p-4">
             <table className="w-full border border-gray-200 rounded-lg overflow-hidden">
@@ -35,7 +21,7 @@ export default async function UserTable() {
                 </thead>
 
                 <tbody>
-                    {allusers.map((user) => (
+                    {allusers?.map((user) => (
                         <tr key={user._id} className="border-t">
                             {/* Image */}
                             <td className="p-3">
@@ -56,24 +42,12 @@ export default async function UserTable() {
                             <td className="p-3">{user?.role}</td>
                             {/* Role Select */}
                             <td className="p-3">
-                                <select
-                                    value={user.role}
-                                    className="border p-1 rounded"
-                                >
-                                    <option value="admin">Admin</option>
-                                    <option value="tenant">Tenant</option>
-                                    <option value="owner">Owner</option>
-                                </select>
+                                <UserRoleUpdate id={user?._id} />
                             </td>
 
                             {/* Action Button */}
                             <td className="p-3">
-                                <button
-                                    // onClick={() => handleAction(user._id.$oid)}
-                                    className="bg-red-500 text-white px-3 py-1 rounded"
-                                >
-                                    Delete
-                                </button>
+                                <DeleteUsers id={user?._id} />
                             </td>
                         </tr>
                     ))}

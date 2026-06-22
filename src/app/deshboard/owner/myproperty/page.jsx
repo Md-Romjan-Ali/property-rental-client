@@ -73,7 +73,11 @@ const PropertyTable = async () => {
                                 </td>
                                 {/* Create Date Column */}
                                 <td className="px-6 py-4 whitespace-nowrap text-gray-500">
-                                    {property?.createdAt}
+                                    {new Date(property?.createdAt).toLocaleDateString("en-US", {
+                                        day: "numeric",
+                                        month: "short",
+                                        year: "numeric",
+                                    })}
                                 </td>
                                 {/* status */}
                                 <td

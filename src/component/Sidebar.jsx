@@ -1,15 +1,14 @@
 import { userSession } from "@/lib/session";
 import { Button, Drawer, Menu } from "@heroui/react";
 import Link from "next/link";
-import { BiBell } from "react-icons/bi";
 import { BsHouse, BsJournalCheck } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { FaUsers } from "react-icons/fa";
 import { GiSelfLove } from "react-icons/gi";
-import { HiHomeModern, HiOutlineClipboardDocumentCheck, HiUsers } from "react-icons/hi2";
+import { HiOutlineClipboardDocumentCheck, HiUsers } from "react-icons/hi2";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoHome, IoReceiptOutline } from "react-icons/io5";
-import { SlMagnifier } from "react-icons/sl";
+
 
 export async function Sidebar() {
     const user = await userSession();
@@ -19,7 +18,7 @@ export async function Sidebar() {
             { icon: CgProfile, label: "Profile", href: "/deshboard/admin/profile" },
             { icon: BsHouse, label: "Home", href: "/deshboard/admin" },
             { icon: FaUsers, label: "All users", href: "/deshboard/admin/totalUsers" },
-            { icon: HiUsers, label: "All Owners", href: "/deshboard/admin/totalOwners" },
+            { icon: HiUsers, label: "All Property", href: "/deshboard/admin/totalOwners" },
         ],
         owner: [
             { icon: CgProfile, label: "Profile", href: "/deshboard/owner/profile" },
