@@ -68,16 +68,25 @@ const PropertyTable = async () => {
                                     />
                                 </td>
                                 {/* Property Name Column */}
-                                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-800 capitalize">
-                                    {property.propertyName}
+                                <td className="px-6 py-4 whitespace-nowrap text-lg font-medium text-gray-800 capitalize">
+                                    {property?.propertyName}
                                 </td>
                                 {/* Create Date Column */}
                                 <td className="px-6 py-4 whitespace-nowrap text-gray-500">
-                                    {property.createdAt || '10-10-2026'}
+                                    {property?.createdAt}
                                 </td>
                                 {/* status */}
-                                <td className="px-6 py-4 whitespace-nowrap text-gray-500">
-                                    {property.status || 'Pending'}
+                                <td
+                                    className={`px-6 text-[14px] py-4 whitespace-nowrap font-semibold ${property?.status === "Approved"
+                                        ? "text-green-600"
+                                        : property?.status === "Rejected"
+                                            ? "text-red-600"
+                                            : property?.status === "Pending"
+                                                ? "text-yellow-600"
+                                                : "text-gray-500"
+                                        }`}
+                                >
+                                    {property?.status}
                                 </td>
                                 {/* Action Buttons Column */}
                                 <td className="px-6 py-4 whitespace-nowrap text-center">

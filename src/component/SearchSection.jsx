@@ -1,4 +1,5 @@
 "use client"
+import { redirect } from "next/navigation";
 import React, { useState } from "react";
 import { FaLocationPinLock } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
@@ -16,8 +17,7 @@ const SearchSection = () => {
             propertyType,
             sortBy,
         };
-
-        console.log(searchData);
+        redirect(`/allProperty?search=${location}`)
     };
 
     return (

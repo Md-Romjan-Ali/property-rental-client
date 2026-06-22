@@ -4,21 +4,21 @@ import { auth } from "../auth";
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
 export const getOwnerData = async (userId) => {
-    // const token = await auth.api.getToken({
-    //     headers: await headers()
-    // })
+    const token = await auth.api.getToken({
+        headers: await headers()
+    })
     const res = await fetch(`${serverUri}/api/ownerdata?userId=${userId}`, {
-        // headers: {
-        //     authorization: `Bearer ${token?.token}`
-        // }
+        headers: {
+            authorization: `Bearer ${token?.token}`
+        }
     })
     return await res.json()
 }
-export const getOwnerlimitdata = async (page) => {
+export const getOwnerlimitdata = async (search = "", page) => {
     if (!page) {
         page = 1
     }
-    const res = await fetch(`${serverUri}/api/ownerlimidata?page=${page}`)
+    const res = await fetch(`${serverUri}/api/ownerlimidata?search=${search}&page=${page}`)
     return await res.json()
 }
 // get single dat by id

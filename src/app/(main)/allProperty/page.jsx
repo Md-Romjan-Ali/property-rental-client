@@ -7,7 +7,7 @@ import { getOwnerlimitdata } from '@/lib/owner/ownerget';
 const AllPropertyPage = async ({ searchParams }) => {
     const params = await searchParams;
     console.log(params, 'from all age');
-    const property = await getOwnerlimitdata(params?.page)
+    const property = await getOwnerlimitdata(params?.search, params?.page)
     const properties = property.data
     console.log(properties, 'from and ', property);
     return (
@@ -25,7 +25,7 @@ const AllPropertyPage = async ({ searchParams }) => {
                     lifestyle and budget.
                 </p>
             </div>
-            <div className='mb-5 text-white'>
+            <div className='my-5 text-white'>
                 <SearchSection />
             </div>
 

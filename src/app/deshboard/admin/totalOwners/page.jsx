@@ -1,4 +1,6 @@
 
+import AdminPropertyUpdate from '@/component/updateHandle/AdminPropertyHandle';
+import { totalPorperty } from '@/lib/admin/getadmin';
 import { getOwnerData } from '@/lib/owner/ownerget';
 import { userSession } from '@/lib/session';
 import { Button } from '@heroui/react';
@@ -37,7 +39,9 @@ const OwnerPropertyTable = async () => {
     //     console.log(`Delete property with ID: ${id}`);
     // };
 
-    const properties = await getOwnerData()
+    // const properties = await getOwnerData()
+    const properties = await totalPorperty()
+    console.log(properties, 'from get owner data');
     return (
         <div className="max-w-5xl p-4">
             <div className="overflow-x-auto rounded-lg shadow-md border border-gray-200">
@@ -65,23 +69,30 @@ const OwnerPropertyTable = async () => {
                                     />
                                 </td>
                                 {/* Property Name Column */}
-                                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-800 capitalize">
-                                    {property.propertyName}
+                                <td className="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-800 capitalize">
+                                    {property?.propertyName}
                                 </td>
                                 {/* Create Date Column */}
                                 <td className="px-6 py-4 whitespace-nowrap text-gray-500">
                                     {property?.monthlyRent}
                                 </td>
                                 {/* status */}
-                                <td className="px-6 py-4 whitespace-nowrap text-gray-500">
-                                    {property.status || 'Pending'}
+                                <td
+                                    className={`px-6 text-[14px] py-4 whitespace-nowrap font-semibold ${property?.status === "Approved"
+                                        ? "text-green-600"
+                                        : property?.status === "Rejected"
+                                            ? "text-red-600"
+                                            : property?.status === "Pending"
+                                                ? "text-yellow-600"
+                                                : "text-gray-500"
+                                        }`}
+                                >
+                                    {property?.status}
                                 </td>
                                 {/* Action Buttons Column */}
                                 <td className="px-6 py-4 whitespace-nowrap text-center">
                                     <div className="flex justify-center items-center space-x-3">
-                                        <Button>Approve</Button>
-
-                                        <Button variant="danger-soft">Reject</Button>
+                                        <AdminPropertyUpdate id={property._id} />
 
                                     </div>
                                 </td>

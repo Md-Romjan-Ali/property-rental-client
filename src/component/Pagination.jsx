@@ -13,14 +13,14 @@ export function PaginationBasic({ property }) {
     }
     console.log(totalPages, 'from pagnation');
     return (
-        <Pagination className="justify-center">
+        <Pagination className="justify-center my-5">
             <Pagination.Content>
                 <Pagination.Item>
-                    <Link href={`allProperty?page=${page - 1}`}>
+                    <Link className="text-lg" href={`allProperty?page=${page - 1}`}>
                         <Pagination.Previous isDisabled={page === 1}>
                             <Pagination.PreviousIcon />
 
-                            <span>Previous</span>
+                            <span className="text-lg">Previous</span>
                         </Pagination.Previous>
                     </Link>
 
@@ -38,7 +38,7 @@ export function PaginationBasic({ property }) {
                 <Pagination.Item>
                     <Link href={`allProperty?page=${page + 1}`}>
                         <Pagination.Next isDisabled={page === totalPages}>
-                            <span>Next</span>
+                            <span className="text-xl">Next</span>
                             <Pagination.NextIcon />
                         </Pagination.Next>
                     </Link>
