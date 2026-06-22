@@ -1,4 +1,5 @@
 
+import OwnerBookUpdate from "@/component/updateHandle/OwnerBookUpdate";
 import { getBookedData } from "@/lib/owner/ownerget";
 import { userSession } from "@/lib/session";
 
@@ -31,7 +32,7 @@ export default async function BookedProperty() {
                                 <td className="p-3">{item.price}</td>
                                 <td className="p-3">
                                     <span
-                                        className={`px-2 py-1 rounded text-white text-sm ${item.status === "Approved"
+                                        className={`px-2 py-1 rounded text-white text-[14px] ${item.status === "Approved"
                                             ? "bg-green-500"
                                             : item.status === "Rejected"
                                                 ? "bg-red-500"
@@ -43,19 +44,8 @@ export default async function BookedProperty() {
                                 </td>
 
                                 <td className="p-3 flex gap-2">
-                                    <button
+                                    <OwnerBookUpdate id={item?._id} />
 
-                                        className="px-3 py-1 bg-green-600 text-white rounded"
-                                    >
-                                        Approve
-                                    </button>
-
-                                    <button
-
-                                        className="px-3 py-1 bg-red-600 text-white rounded"
-                                    >
-                                        Reject
-                                    </button>
                                 </td>
                             </tr>
                         ))}

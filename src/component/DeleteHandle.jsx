@@ -2,6 +2,7 @@
 import { deleteData, deleteFavouriteData } from '@/lib/tanant/tanantdelete';
 import { useRouter } from 'next/navigation';
 import { FaTrash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const DeleteHandle = ({ id }) => {
     const router = useRouter()
@@ -10,7 +11,9 @@ const DeleteHandle = ({ id }) => {
             deleteData(id),
             deleteFavouriteData(id)
         ]);
+
         router.refresh()
+        toast.error('this data permanently deleted')
     }
     return (
         <div>

@@ -3,15 +3,18 @@
 import { userSession } from "@/lib/session";
 import { favouritePost } from "@/lib/tanant/tanantpost";
 import { Button } from "@heroui/react";
+import { toast } from "react-toastify";
 
 const AddFavouriteHandle = ({ property }) => {
     const favouriteHandle = async () => {
         const user = await userSession()
-        const properties = {
-            ...property,
+        const { _id, ...properties } = property
+        const favProperty = {
+            ...properties,
             userId: user?.id
         }
-        const favourite = await favouritePost(properties)
+        const favourite = await favouritePost(favProperty)
+        toast.success('Add Favourite Successfully')
         console.log(favourite, 'from custom handle');
     }
     return (

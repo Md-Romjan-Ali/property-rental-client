@@ -27,6 +27,11 @@ export default async function RequestTable() {
     const user = await userSession()
     const requests = await getBookingData(user?.email)
     console.log(requests, 'from my bookig');
+    const statusStyles = {
+        pending: "bg-yellow-100 text-yellow-700",
+        approved: "bg-green-100 text-green-700",
+        rejected: "bg-red-100 text-red-700",
+    };
     return (
         <div className="overflow-x-auto mx-auto md:ml-10 my-10 rounded-xl border border-slate-200 bg-white shadow-sm">
             <table className="min-w-full">
@@ -66,7 +71,7 @@ export default async function RequestTable() {
 
                             <td className="px-5 py-4">
                                 <span
-                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-semibold ${item.payStatus === "paid"
+                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-semibold ${item.status === "Approved"
                                         ? "bg-green-100 text-green-700"
                                         : "bg-red-100 text-red-700"
                                         }`}
@@ -77,13 +82,14 @@ export default async function RequestTable() {
                                         <FaTimesCircle />
                                     )}
 
-                                    {item.payStatus === "paid" ? "Paid" : "Unpaid"}
+                                    {item.status === "Approved" ? 'Paid Success' : 'Paid Pending'}
                                 </span>
                             </td>
 
                             <td className="px-5 py-4">
                                 <span
-                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold `}
+                                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-semibold capitalize ${statusStyles[item.status?.toLowerCase()] || "bg-gray-100 text-gray-600"
+                                        }`}
                                 >
                                     {item.status}
                                 </span>

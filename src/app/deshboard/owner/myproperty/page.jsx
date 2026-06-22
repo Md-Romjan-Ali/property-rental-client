@@ -1,4 +1,6 @@
 
+import DeleteOwnerProperty from '@/component/alldeleteHandle/DeleteOwnerProperty';
+import UpdateProperty from '@/component/UpdateModale';
 import { getOwnerData } from '@/lib/owner/ownerget';
 import { userSession } from '@/lib/session';
 import { Button } from '@heroui/react';
@@ -80,22 +82,9 @@ const PropertyTable = async () => {
                                 {/* Action Buttons Column */}
                                 <td className="px-6 py-4 whitespace-nowrap text-center">
                                     <div className="flex justify-center items-center space-x-3">
-                                        <Button>      <FaEdit size={20} /></Button>
-                                        {/* <button
-                                            // onClick={() => handleUpdate(property._id)}
-                                            className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-full transition-colors"
-                                            title="Update Property"
-                                        >
-                                      
-                                        </button> */}
-                                        <Button variant="danger-soft">  <FaTrashAlt size={20} /></Button>
-                                        {/* <button
-                                            // onClick={() => handleDelete(property._id)}
-                                            className="p-2 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-full transition-colors"
-                                            title="Delete Property"
-                                        >
-                                          
-                                        </button> */}
+                                        <UpdateProperty id={property?._id} />
+
+                                        <DeleteOwnerProperty id={property?._id} />
                                     </div>
                                 </td>
                             </tr>

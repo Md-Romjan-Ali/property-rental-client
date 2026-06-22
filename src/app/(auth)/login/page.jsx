@@ -84,7 +84,10 @@ const Login = () => {
                         type="submit"
                         className="w-full mt-2 py-3 px-4 bg-emerald-500 hover:bg-emerald-400 text-[#0B0F19] font-bold rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 active:scale-[0.98] transition-all duration-200"
                     >
-                        Login
+                        {
+                            loading ? 'loging...' : 'Login'
+                        }
+
                     </button>
                 </form>
 
