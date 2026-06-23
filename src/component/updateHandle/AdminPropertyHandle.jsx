@@ -3,6 +3,7 @@
 import { updateOwnerallData, updateOwnerData } from "@/lib/owner/ownerupdate";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { AdminRejectModal } from "../AdminRejectModal";
 
 const AdminPropertyUpdate = ({ id }) => {
     const router = useRouter();
@@ -15,15 +16,6 @@ const AdminPropertyUpdate = ({ id }) => {
         toast.success('Approve Booking Success')
     };
 
-    const rejectHandle = async () => {
-        const data = { status: 'Rejected' };
-        const reject = await updateOwnerallData(id, data);
-        console.log(reject, 'from reject handle');
-        router.refresh();
-        toast.error('Rejected Booking')
-
-    };
-
     return (
         <div className="flex gap-2">
             <button
@@ -32,13 +24,13 @@ const AdminPropertyUpdate = ({ id }) => {
             >
                 Approve
             </button>
-
-            <button
+            <AdminRejectModal id={id} />
+            {/* <button
                 onClick={rejectHandle}
                 className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition"
             >
                 Reject
-            </button>
+            </button> */}
         </div>
     );
 };

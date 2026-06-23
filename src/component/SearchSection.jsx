@@ -1,4 +1,5 @@
 "use client"
+import { motion } from "motion/react";
 import { redirect } from "next/navigation";
 import React, { useState } from "react";
 import { FaLocationPinLock } from "react-icons/fa6";
@@ -12,16 +13,23 @@ const SearchSection = () => {
     const handleSearch = (e) => {
         e.preventDefault();
 
-        const searchData = {
-            location,
-            propertyType,
-            sortBy,
-        };
-        redirect(`/allProperty?search=${location}`)
+        redirect(`/allProperty?search=${location || propertyType}&sortBy=monthlyRent&order=${sortBy}`)
     };
 
     return (
-        <div className="p-6 md:p-10 bg-gray-300/50 backdrop-blur-md rounded-2xl max-w-5xl mx-auto shadow-lg mt-10">
+        <motion.div
+            initial={{
+                opacity: 0,
+                x: -100,
+                y: 100
+            }}
+            animate={{
+                opacity: 1,
+                x: 0,
+                y: 0,
+                transition: { duration: 0.9, ease: 'easeIn' }
+            }}
+            className="p-6 md:p-10 bg-gray-300/50 backdrop-blur-md rounded-2xl max-w-5xl mx-auto shadow-lg mt-10">
             <form
                 onSubmit={handleSearch}
                 className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end"
@@ -57,11 +65,11 @@ const SearchSection = () => {
                         onChange={(e) => setPropertyType(e.target.value)}
                         className="w-full mt-1 px-3 py-2 border rounded-lg bg-gray-900"
                     >
-                        <option value="">All Types</option>
-                        <option value="room">Room</option>
-                        <option value="apartment">Apartment</option>
+                        <option value="" disabled>All Types</option>
                         <option value="house">House</option>
-                        <option value="hostel">Hostel</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="vill">Vill</option>
+
                     </select>
                 </div>
 
@@ -76,8 +84,8 @@ const SearchSection = () => {
                         className="w-full mt-1 px-3 py-2 border rounded-lg bg-gray-900"
                     >
                         <option value="">Default</option>
-                        <option value="low-to-high">Low to High</option>
-                        <option value="high-to-low">High to Low</option>
+                        <option value="dsc">Low to High</option>
+                        <option value="desc">High to Low</option>
                     </select>
                 </div>
 
@@ -89,7 +97,7 @@ const SearchSection = () => {
                     Search
                 </button>
             </form>
-        </div>
+        </motion.div>
     );
 };
 

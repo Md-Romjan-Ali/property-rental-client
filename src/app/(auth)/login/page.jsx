@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "motion/react"
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
@@ -33,13 +33,18 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#0B0F19] px-4 selection:bg-emerald-500 selection:text-black">
+        <div
+
+            className="min-h-screen flex items-center justify-center bg-[#0B0F19] px-4 selection:bg-emerald-500 selection:text-black">
 
             <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
             <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
 
-            <div className="w-full max-w-md bg-[#111827] border border-gray-800 rounded-2xl shadow-2xl p-8 backdrop-blur-sm z-10">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1, ease: 'easeIn' } }}
+                className="w-full max-w-md bg-[#111827] border border-gray-800 rounded-2xl shadow-2xl p-8 backdrop-blur-sm z-10">
                 <div className="text-center mb-8">
                     <h2 className="text-3xl font-extrabold text-white tracking-tight mb-2">
                         WellCome Back
@@ -49,10 +54,9 @@ const Login = () => {
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
 
-
-
+                    onSubmit={handleSubmit} className="space-y-5">
                     {/* emial */}
                     <div className="group">
                         <label className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2 group-focus-within:text-emerald-400 transition-colors duration-200">
@@ -124,7 +128,7 @@ const Login = () => {
                         Register
                     </Link>
                 </p>
-            </div>
+            </motion.div>
         </div>
     );
 };
