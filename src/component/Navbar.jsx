@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { redirect, usePathname } from 'next/navigation';
 import React from 'react';
-import { IoHome } from 'react-icons/io5';
 import { MdMenu } from 'react-icons/md';
 import Logo from './Logo';
 
@@ -124,10 +123,11 @@ const Navbar = () => {
                                     <Button
                                         variant="ghost"
                                         aria-label="Menu"
-                                        className="text-white border-cyan-400/40 min-w-10 w-10 h-10 p-0 hover:bg-cyan-500/20"
+                                        className="text-white text-3xl border-cyan-400/40 hover:bg-cyan-500/20"
                                     >
-                                        <MdMenu size={28} />
+                                        Menu
                                     </Button>
+
                                     <Dropdown.Popover>
                                         <Dropdown.Menu onAction={(key) => console.log(`Selected: ${key}`)}>
                                             <Dropdown.Item textValue="Home">

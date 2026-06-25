@@ -24,20 +24,20 @@ const Chart = ({ bookingData }) => {
 
     const mapData = bookingData.map(price => price.price)
     console.log(mapData, 'from chart', bookingData);
-    const monthlyData = [
-        { month: "Jan", earnings: 120000 },
-        { month: "Feb", earnings: 180000 },
-        { month: "Mar", earnings: 150000 },
-        { month: "Apr", earnings: 220000 },
-        { month: "May", earnings: 280000 },
-        { month: "Jun", earnings: 320000 },
-        { month: "Jul", earnings: 290000 },
-        { month: "Aug", earnings: 350000 },
-        { month: "Sep", earnings: 400000 },
-        { month: "Oct", earnings: 380000 },
-        { month: "Nov", earnings: 450000 },
-        { month: "Dec", earnings: 520000 },
-    ];
+    // const monthlyData = [
+    //     { month: "Jan", earnings: 120000 },
+    //     { month: "Feb", earnings: 180000 },
+    //     { month: "Mar", earnings: 150000 },
+    //     { month: "Apr", earnings: 220000 },
+    //     { month: "May", earnings: 280000 },
+    //     { month: "Jun", earnings: 320000 },
+    //     { month: "Jul", earnings: 290000 },
+    //     { month: "Aug", earnings: 350000 },
+    //     { month: "Sep", earnings: 400000 },
+    //     { month: "Oct", earnings: 380000 },
+    //     { month: "Nov", earnings: 450000 },
+    //     { month: "Dec", earnings: 520000 },
+    // ];
     return (
         <div className="mt-10">
             <ResponsiveContainer width="100%" height={350}>
