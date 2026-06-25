@@ -4,6 +4,7 @@ import { MdAttachMoney } from "react-icons/md";
 import Chart from "@/component/Chart";
 import { getBookedData, getOwnerData } from "@/lib/owner/ownerget";
 import { userSession } from "@/lib/session";
+import { Suspense } from "react";
 
 
 const OwnerPage = async () => {
@@ -53,7 +54,10 @@ const OwnerPage = async () => {
                     </div>
                 </div>
             </div>
-            <Chart />
+            <Suspense fallback={<h1 className="text-black">loading...</h1>}>
+                <Chart bookingData={bookingData} />
+            </Suspense>
+
         </div>
     );
 };

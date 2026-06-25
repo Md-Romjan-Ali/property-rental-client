@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Property Rental Booking Platform
 
-## Getting Started
+A full-stack property rental and booking platform that connects property owners with tenants. Users can browse rental properties, view detailed property information, save favorites, submit booking requests, and manage their rental activities through role-based dashboards.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://property-renteal-booking-platformcl.vercel.app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### For Renters
 
-## Learn More
+* Browse available rental properties
+* Search and filter properties by category and location
+* View detailed property information
+* Save favorite properties
+* Submit booking requests
+* Track booking status
+* Manage personal profile
 
-To learn more about Next.js, take a look at the following resources:
+### For Property Owners
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Add new property listings
+* Upload property images
+* Update property information
+* Manage booking requests
+* Approve or reject tenant requests
+* Track property performance
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### For Administrators
 
-## Deploy on Vercel
+* Manage users and roles
+* Monitor property listings
+* Review booking activities
+* Approve or manage owner accounts
+* Manage platform content
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technology Stack
+
+### Frontend
+
+* Next.js
+* React.js
+* Tailwind CSS
+* HeroUI
+* React Icons
+* React Hot Toast
+
+### Backend
+
+* Express.js
+* Node.js
+
+### Database
+
+* MongoDB
+
+### Authentication
+
+* Better Auth / JWT Authentication
+
+### Deployment
+
+* Vercel
+
+---
+
+## Core Functionalities
+
+### Authentication & Authorization
+
+* User Registration
+* User Login
+* Protected Routes
+* Role-Based Access Control
+* JWT Authentication
+
+### Property Management
+
+* Add Property
+* Update Property
+* Delete Property
+* Property Details Page
+* Property Search & Filtering
+
+### Booking System
+
+* Create Booking Request
+* Approve Booking
+* Reject Booking
+* Booking Status Tracking
+
+### Favorites System
+
+* Add to Favorites
+* Remove from Favorites
+* View Saved Properties
+
+---
+---

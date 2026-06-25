@@ -1,12 +1,15 @@
 import UserProfile from '@/component/Profile';
 import { userSession } from '@/lib/session';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const ProfilePage = async () => {
     const user = await userSession()
     return (
         <div>
-            <UserProfile user={user}></UserProfile>
+            <Suspense fallback={<h1>loading...</h1>}>
+                <UserProfile user={user}></UserProfile>
+            </Suspense>
+
         </div>
     );
 };

@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Register = () => {
     const [loadig, setLoading] = useState(false)
+    const [errors, setErrors] = useState('')
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -16,8 +17,9 @@ const Register = () => {
             email: user?.email, // required
             password: user?.password, // required
             image: user?.photoUrl,
-            // callbackURL: "/",
+            callbackURL: "/",
         });
+        setErrors(error?.message)
         console.log(data, error);
         setLoading(false)
     };
@@ -107,6 +109,7 @@ const Register = () => {
                             className="w-full px-4 py-3 bg-[#1F2937] border border-gray-700 rounded-xl text-white placeholder-gray-500 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200"
                         />
                     </div>
+                    <p className="text-lg font-semibold text-red-500">{errors}</p>
 
                     <button
                         type="submit"

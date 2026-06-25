@@ -241,19 +241,14 @@ export default function UpdateProperty({ id }) {
                                         className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-lg font-semibold transition"
                                     >
                                         {
-                                            loading ? 'Posting...' : 'Add Property'
+                                            loading ? 'Saving...' : 'Save'
                                         }
 
                                     </button>
                                 </form>
                             </Surface>
                         </Modal.Body >
-                        <Modal.Footer>
-                            <Button slot="close" variant="secondary">
-                                Cancel
-                            </Button>
-                            <Button slot="close">Send Message</Button>
-                        </Modal.Footer>
+
                     </Modal.Dialog >
                 </Modal.Container >
             </Modal.Backdrop >

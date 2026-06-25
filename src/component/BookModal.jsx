@@ -1,16 +1,16 @@
 "use client";
 
-import { userSession } from "@/lib/session";
+import { authClient } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
-import { useState } from "react";
 import { BiEnvelope } from "react-icons/bi";
 
 export function BookingModal({ ownerId, price, productId, title }) {
-    const [user, setUser] = useState()
+    const { data: session } = authClient.useSession()
+    const user = session?.user
+    console.log(session, 'from bookig');
     const bookingHandle = async (e) => {
         e.preventDefault()
-        const user = await userSession()
-        setUser(user)
+
         const formData = new FormData(e.target)
         const bookingInfo = Object.fromEntries(formData.entries())
         const bookingData = {
@@ -29,13 +29,10 @@ export function BookingModal({ ownerId, price, productId, title }) {
                         <Modal.CloseTrigger />
                         <Modal.Header>
                             <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                                <BiEnvelope className="size-5" />
+
                             </Modal.Icon>
-                            <Modal.Heading>Contact Us</Modal.Heading>
-                            <p className="mt-1.5 text-sm leading-5 text-muted">
-                                Fill out the form below and we will get back to you. The modal adapts automatically
-                                when the keyboard appears on mobile.
-                            </p>
+                            <Modal.Heading>Confirm Book</Modal.Heading>
+
                         </Modal.Header>
                         <Modal.Body className="p-6">
                             <Surface variant="default">

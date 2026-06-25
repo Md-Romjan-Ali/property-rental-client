@@ -1,17 +1,17 @@
 "use client"
 
 import { authClient } from '@/lib/auth-client';
-import { Button, Dropdown, Label } from '@heroui/react';
+import { Button, Dropdown } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect, usePathname } from 'next/navigation';
 import React from 'react';
 import { IoHome } from 'react-icons/io5';
 import { MdMenu } from 'react-icons/md';
+import Logo from './Logo';
 
 const Navbar = () => {
     const pathName = usePathname()
-    console.log(pathName, 'from navaber');
     const { data: session } = authClient.useSession()
     const name = session?.user?.name.split(" ")[0]
     console.log(session, 'from navabar');
@@ -23,30 +23,21 @@ const Navbar = () => {
     const LinksNav = <>
         <li className={`${pathName === '/' && 'border-b-4 pb-1'}`}><Link href={'/'}>Home</Link></li>
         <li className={`${pathName === '/allProperty' && 'border-b-4 pb-1'}`}><Link href={'/allProperty'}>All Properties</Link></li>
-
     </>
+
     const LinksProfile = <>
         <li className={`${pathName === `/deshboard/${session?.user?.role}` && 'border-b-4 pb-1'}`}><Link href={`/deshboard/${session?.user?.role}`}>Dashboard</Link></li>
-
     </>
+
     if (pathName.startsWith("/deshboard")) {
         return null;
     }
-    return (
 
+    return (
         <div className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 border-b border-cyan-400/20 shadow-lg">
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between text-white">
 
-                {/* LEFT */}
-                <Link href="/" className="flex items-center gap-3">
-                    <div className="p-2 rounded-full bg-cyan-500/20 border border-cyan-300/30">
-                        <IoHome size={26} className="text-cyan-300" />
-                    </div>
-
-                    <h1 className="text-2xl font-bold tracking-wide">
-                        PropertyHub
-                    </h1>
-                </Link>
+                <Logo />
 
                 {/* CENTER (Desktop) */}
                 <ul className="hidden lg:flex gap-6 font-medium">
@@ -59,40 +50,38 @@ const Navbar = () => {
                     {session ? (
                         <>
                             <Dropdown>
-                                <Button variant="ghost" aria-label="Menu" >
+                                <Button
+                                    variant="ghost"
+                                    aria-label="Menu"
+                                    className="p-0 h-auto hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                                >
                                     <Image
-                                        width={40}
-                                        height={40}
+                                        width={48}
+                                        height={48}
                                         alt="profile"
-                                        src={
-                                            session?.user?.image ||
-                                            "https://i.pravatar.cc/150"
-                                        }
-                                        className="rounded-full border-2 h-12 w-12 border-cyan-300"
+                                        src={session?.user?.image || "https://i.pravatar.cc/150"}
+                                        className="rounded-full border-2 h-12 w-12 border-cyan-300 object-cover"
                                     />
                                 </Button>
                                 <Dropdown.Popover>
                                     <Dropdown.Menu onAction={(key) => console.log(`Selected: ${key}`)}>
-
-                                        <Dropdown.Item textValue="Copy link">
+                                        <Dropdown.Item textValue="Profile">
                                             <Link
                                                 href={`/deshboard/${session?.user?.role}/profile`}
-                                                className=""
+                                                className="w-full block"
                                             >
                                                 Profile
                                             </Link>
                                         </Dropdown.Item>
-                                        <Dropdown.Item textValue="Copy link">
+                                        <Dropdown.Item textValue="Dashboard">
                                             <Link
                                                 href={`/deshboard/${session?.user?.role}`}
-                                                className=""
+                                                className="w-full block"
                                             >
-                                                {LinksProfile}
+                                                Dashboard
                                             </Link>
                                         </Dropdown.Item>
-
-                                        <Dropdown.Item variant="danger">
-
+                                        <Dropdown.Item variant="danger" textValue="Sign Out">
                                             <button
                                                 onClick={logOutHanle}
                                                 className="w-full mt-2 bg-red-500 hover:bg-red-600 text-white py-1 rounded"
@@ -108,7 +97,7 @@ const Navbar = () => {
                             <div className="relative group">
                             </div>
 
-                            <span className="hidden md:block text-cyan-100 -ml-6 font-medium">
+                            <span className="hidden text-xl md:block text-cyan-100 -ml-6 font-medium">
                                 Hi, {name}
                             </span>
                         </>
@@ -129,59 +118,62 @@ const Navbar = () => {
                                 </Link>
                             </div>
 
-
-                            <Dropdown>
-                                <Button className="lg:hidden text-black" aria-label="Menu">
-                                    {/* Mobile Menu Button */}
-
-                                    <MdMenu size={28} />
-
-                                </Button>
-                                <Dropdown.Popover>
-                                    <Dropdown.Menu onAction={(key) => console.log(`Selected: ${key}`)}>
-
-                                        <Dropdown.Item textValue="Copy link">
-                                            <div className="lg:hidden border-t border-cyan-400/20 px-4 py-4">
-                                                <ul className="flex flex-col gap-3">
-                                                    {/* {LinksNav} */}
-                                                    {session &&
-
-                                                        <>
-                                                            <Dropdown.Item>
-                                                                {<li className={`${pathName === '/my-booking' && 'border-b-4 pb-1'}`}><Link href={'/my-booking'}>My Bookings</Link></li>}
-                                                            </Dropdown.Item>
-                                                        </>
-                                                    }
-
-                                                </ul>
-                                            </div>
-                                        </Dropdown.Item>
-
-                                        <Dropdown.Item>
-                                            <li className={`${pathName === '/my-booking' && 'border-b-4 pb-1'}`}><Link href={'/allProperty'}>All Properties</Link></li>
-                                        </Dropdown.Item>
-
-                                        {!session && (
-
-                                            <Dropdown.Item variant="danger">
-                                                <Link className='hover:bg-gray-300 py-2 px-3 rounded-2xl' href="/login">Login</Link>
-                                                <Link className='hover:bg-gray-300 py-2 px-3 rounded-2xl' href="/register">Register</Link>
+                            {/* Mobile Hamburger Menu */}
+                            <div className="lg:hidden">
+                                <Dropdown>
+                                    <Button
+                                        variant="ghost"
+                                        aria-label="Menu"
+                                        className="text-white border-cyan-400/40 min-w-10 w-10 h-10 p-0 hover:bg-cyan-500/20"
+                                    >
+                                        <MdMenu size={28} />
+                                    </Button>
+                                    <Dropdown.Popover>
+                                        <Dropdown.Menu onAction={(key) => console.log(`Selected: ${key}`)}>
+                                            <Dropdown.Item textValue="Home">
+                                                <Link href="/" className="w-full block py-1">Home</Link>
                                             </Dropdown.Item>
 
+                                            <Dropdown.Item textValue="All Properties">
+                                                <Link href="/allProperty" className="w-full block py-1">All Properties</Link>
+                                            </Dropdown.Item>
 
-                                        )}
+                                            {session && (
+                                                <>
+                                                    <Dropdown.Item textValue="Dashboard">
+                                                        <Link href={`/deshboard/${session?.user?.role}`} className="w-full block py-1">Dashboard</Link>
+                                                    </Dropdown.Item>
+                                                    <Dropdown.Item textValue="My Bookings">
+                                                        <Link href="/my-booking" className="w-full block py-1">My Bookings</Link>
+                                                    </Dropdown.Item>
+                                                    <Dropdown.Item variant="danger" textValue="Sign Out">
+                                                        <button onClick={logOutHanle} className="w-full text-left text-red-500 font-medium py-1">
+                                                            Sign Out
+                                                        </button>
+                                                    </Dropdown.Item>
+                                                </>
+                                            )}
 
-                                    </Dropdown.Menu>
-                                </Dropdown.Popover>
-                            </Dropdown>
+                                            {!session && (
+                                                <Dropdown.Section title="Account" className="border-t border-gray-200 mt-2 pt-2">
+                                                    <Dropdown.Item textValue="Login">
+                                                        <Link href="/login" className="w-full block py-1 font-medium text-cyan-600">Login</Link>
+                                                    </Dropdown.Item>
+                                                    <Dropdown.Item textValue="Register">
+                                                        <Link href="/register" className="w-full block py-1 font-medium text-cyan-600">Register</Link>
+                                                    </Dropdown.Item>
+                                                </Dropdown.Section>
+                                            )}
+                                        </Dropdown.Menu>
+                                    </Dropdown.Popover>
+                                </Dropdown>
+                            </div>
                         </>
                     )}
                 </div>
             </div>
-
         </div>
     );
 };
-
 
 export default Navbar;

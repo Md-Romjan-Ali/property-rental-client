@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 const Login = () => {
     const router = useRouter()
     const [loading, setLoading] = useState(false)
+    const [errors, setErrors] = useState('')
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -19,9 +20,14 @@ const Login = () => {
             password: user?.password, // required
 
         });
-        console.log(data, error);
+        setErrors(error?.message)
         setLoading(false)
-        router.push('/')
+
+        console.log(data, error, 'from');
+        if (data) {
+            router.push('/')
+        }
+
     };
 
 
@@ -83,7 +89,7 @@ const Login = () => {
                             className="w-full px-4 py-3 bg-[#1F2937] border border-gray-700 rounded-xl text-white placeholder-gray-500 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all duration-200"
                         />
                     </div>
-
+                    <p className="text-lg font-semibold text-red-500">{errors}</p>
                     <button
                         type="submit"
                         className="w-full mt-2 py-3 px-4 bg-emerald-500 hover:bg-emerald-400 text-[#0B0F19] font-bold rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 active:scale-[0.98] transition-all duration-200"

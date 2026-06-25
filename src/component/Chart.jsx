@@ -9,7 +9,21 @@ import {
     Tooltip,
 } from "recharts";
 
-const Chart = () => {
+const Chart = ({ bookingData }) => {
+    console.log(bookingData, 'from charts');
+    // const filterData = bookingData?.filter(data => data.status)
+    // const monthlyDatas = bookingData.reduce((acc, item) => {
+    //     const month = new Date(item.createdAt).getMonth();
+
+    //     acc[month] = (acc[month] || 0) + Number(item.price);
+
+    //     return acc;
+    // }, {});
+
+    // console.log(monthlyDatas, 'from charts');
+
+    const mapData = bookingData.map(price => price.price)
+    console.log(mapData, 'from chart', bookingData);
     const monthlyData = [
         { month: "Jan", earnings: 120000 },
         { month: "Feb", earnings: 180000 },
@@ -27,14 +41,14 @@ const Chart = () => {
     return (
         <div className="mt-10">
             <ResponsiveContainer width="100%" height={350}>
-                <LineChart data={monthlyData}>
+                <LineChart data={bookingData}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="month" />
+                    <XAxis dataKey="payStatus" />
                     <YAxis />
                     <Tooltip />
                     <Line
                         type="monotone"
-                        dataKey="earnings"
+                        dataKey="price"
                         strokeWidth={3}
                     />
                 </LineChart>

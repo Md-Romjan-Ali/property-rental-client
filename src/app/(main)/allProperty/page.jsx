@@ -3,15 +3,16 @@ import { PaginationBasic } from '@/component/Pagination';
 import PropertyCard from '@/component/PropertyCard';
 import SearchSection from '@/component/SearchSection';
 import { getOwnerlimitdata } from '@/lib/owner/ownerget';
+import { Suspense } from 'react';
 
 const AllPropertyPage = async ({ searchParams }) => {
     const params = await searchParams;
     console.log(params, 'from all age');
-    const property = await getOwnerlimitdata(params?.search, params?.page)
+    const property = await getOwnerlimitdata(params?.search, params?.page, params.order)
     const properties = property.data
     console.log(properties, 'from and ', property);
     return (
-        <div className='pt-10 max-w-7xl mx-auto'>
+        <div className='pt-10 max-w-7xl mx-auto '>
 
             <div className="text-center max-w-3xl mx-auto mb-12">
 
@@ -26,13 +27,19 @@ const AllPropertyPage = async ({ searchParams }) => {
                 </p>
             </div>
             <div className='my-5 text-white'>
-                <SearchSection />
+                <Suspense fallback={<h1>Loading...</h1>}>
+                    <SearchSection />
+                </Suspense>
+
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                {properties?.map((property) => (
-                    <PropertyCard key={property._id} property={property} />
-                ))}
+                <Suspense fallback={<h1>loading...</h1>}>
+                    {properties?.map((property) => (
+                        <PropertyCard key={property._id} property={property} />
+                    ))}
+                </Suspense>
+
             </div>
             <PaginationBasic property={property} />
         </div>

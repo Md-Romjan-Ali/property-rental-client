@@ -65,7 +65,7 @@ const SearchSection = () => {
                         onChange={(e) => setPropertyType(e.target.value)}
                         className="w-full mt-1 px-3 py-2 border rounded-lg bg-gray-900"
                     >
-                        <option value="" disabled>All Types</option>
+                        <option value="">All Types</option>
                         <option value="house">House</option>
                         <option value="apartment">Apartment</option>
                         <option value="vill">Vill</option>
@@ -84,7 +84,7 @@ const SearchSection = () => {
                         className="w-full mt-1 px-3 py-2 border rounded-lg bg-gray-900"
                     >
                         <option value="">Default</option>
-                        <option value="dsc">Low to High</option>
+                        <option value="asc">Low to High</option>
                         <option value="desc">High to Low</option>
                     </select>
                 </div>

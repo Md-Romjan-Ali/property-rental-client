@@ -52,3 +52,17 @@ export const totalBookingsData = async () => {
     })
     return await res.json()
 }
+// get reject messge
+// export const getRejectMessage = async (title) => {
+//     const { token } = await auth.api.getToken({
+//         headers: await headers()
+//     })
+//     const res = await fetch(`${serverUri}/api/rejectowner?title=${title}`, {
+//         headers: {
+//             authorization: `Bearer ${token}`
+//         }
+//     })
+//     const data = await res.json()
+//     console.log(data, 'fro reject messge');
+//     return data;
+// }

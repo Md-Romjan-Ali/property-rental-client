@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { AdminRejectModal } from "../AdminRejectModal";
 
-const AdminPropertyUpdate = ({ id }) => {
+const AdminPropertyUpdate = ({ id, title }) => {
     const router = useRouter();
 
     const approveHandle = async () => {
@@ -24,7 +24,7 @@ const AdminPropertyUpdate = ({ id }) => {
             >
                 Approve
             </button>
-            <AdminRejectModal id={id} />
+            <AdminRejectModal id={id} title={title} />
             {/* <button
                 onClick={rejectHandle}
                 className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition"

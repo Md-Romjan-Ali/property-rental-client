@@ -2,17 +2,17 @@
 
 import { postRejectMessage } from "@/lib/admin/postAdmin";
 import { updateOwnerallData } from "@/lib/owner/ownerupdate";
-import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { Button, Input, Label, Modal, Surface, TextArea, TextField } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-export function AdminRejectModal({ id }) {
+export function AdminRejectModal({ id, title }) {
     const router = useRouter()
     const rejectHandle = async (e) => {
         e.preventDefault()
         const message = {
-            title: 'demo',
-            messa: e.target.message.value
+            title: title,
+            message: e.target.message.value
         }
         console.log(message, 'from messge');
         const data = { status: 'Rejected' };
@@ -35,14 +35,12 @@ export function AdminRejectModal({ id }) {
                         <Modal.Body className="p-6">
                             <Surface variant="default">
                                 <form onSubmit={rejectHandle} className="flex flex-col gap-4">
-                                    <TextField className="w-full" name="name" type="text" variant="secondary">
-                                        <Label>Name</Label>
+                                    <TextField className="w-full" value={title} type="text" variant="secondary">
+                                        <Label>Title</Label>
                                         <Input required placeholder="Enter your name" />
                                     </TextField>
-                                    <TextField className="w-full" name="message" variant="secondary">
-                                        <Label>Message</Label>
-                                        <Input required placeholder="Enter your message" />
-                                    </TextField>
+                                    <Label>Message</Label>
+                                    <TextArea className="w-full" name="message" variant="secondary" />
                                     <Modal.Footer>
                                         <Button slot="close" variant="secondary">
                                             Cancel

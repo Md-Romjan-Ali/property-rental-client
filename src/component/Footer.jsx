@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoHome, IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
+import Logo from "./Logo";
 
 export default function Footer() {
     const pathName = usePathname()
@@ -10,7 +11,7 @@ export default function Footer() {
         return null
     }
     return (
-        <footer className="w-full bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 text-white mt-12">
+        <footer className="w-full bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 text-white">
             <div className="max-w-7xl mx-auto px-6 py-12">
 
                 {/* Top Section */}
@@ -18,15 +19,7 @@ export default function Footer() {
 
                     {/* Brand */}
                     <div>
-                        <Link href="/" className="flex items-center gap-3">
-                            <div className="p-2 rounded-full bg-cyan-500/20 border border-cyan-300/30">
-                                <IoHome size={26} className="text-cyan-300" />
-                            </div>
-
-                            <h1 className="text-2xl font-bold tracking-wide">
-                                PropertyHub
-                            </h1>
-                        </Link>
+                        <Logo />
                         <p className="text-slate-200 mt-4 text-sm leading-relaxed max-w-sm">
                             Manage bookings, owners, tenants, and properties with a modern, fast and clean dashboard experience.
                         </p>

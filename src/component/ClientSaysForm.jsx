@@ -5,73 +5,114 @@ import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa6';
 
 const ClientSays = () => {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
+
     const clientHandle = async (e) => {
-        e.preventDefault()
-        setLoading(true)
-        const user = await userSession()
-        const client = e.target
-        const rating = client.rating.value;
-        const description = client.description.value;
+        e.preventDefault();
+
+        // Validation: Ensure user has selected a rating
+        if (rating === 0) {
+            alert("Please select a rating before submitting!");
+            return;
+        }
+
+        setLoading(true);
+        const user = await userSession();
+        const form = e.target;
+        const description = form.description.value;
+
         const clientSay = {
-            rating,
+            rating: String(rating), // Sending rating as a string to match your old structure
             description,
             name: user?.name,
             email: user?.email,
             image: user?.image
-        }
-        await clientSays(clientSay)
-        setLoading(false)
-        client.reset()
+        };
 
-    }
+        const client = await clientSays(clientSay);
+        console.log(client, 'from client saysa');
+        setLoading(false);
+        setRating(0); // Reset rating state
+        form.reset(); // Reset textarea
+    };
+
     return (
-        <div>
-            <form
-                onSubmit={clientHandle}
-                className="space-y-5 flex gap-5 relative">
-                {/* Rating */}
-                <div className="flex-1">
+        <div className="max-w-3xl bg-white border border-gray-100 rounded-2xl shadow-sm p-6 md:p-8">
+            <h3 className="text-xl font-bold text-gray-800 mb-5">Leave a Review</h3>
+
+            <form onSubmit={clientHandle} className="flex flex-col md:flex-row gap-6 items-start">
+
+                {/* Textarea Field */}
+                <div className="flex-1 w-full">
                     <label className="block text-sm font-semibold text-slate-700 mb-2">
                         What do you think about this property?
                     </label>
-
                     <textarea
                         rows={4}
                         name='description'
-                        placeholder="Share your experience..."
-                        className="w-full rounded-xl border border-slate-200 px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        required
+                        placeholder="Share your detailed experience about the neighborhood, space, or owner..."
+                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-gray-700 placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200"
                     />
                 </div>
-                <div className="">
+
+                {/* Rating & Submission Action Column */}
+                <div className="w-full md:w-56 flex flex-col justify-between h-full self-stretch">
                     <div>
-                        <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-1">
-                            <FaStar size={21} className="text-orange-400" /> Rating
+                        <label className="block text-sm font-semibold text-slate-700 mb-3">
+                            Your Rating
                         </label>
 
-                        <select
-                            className="w-full rounded-xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            name='rating'
-                        >
-                            <option value="" disabled>
-                                Select Rating
-                            </option>
-                            <option value="1"> 1 - Poor</option>
-                            <option value="2">2 - Fair</option>
-                            <option value="3"> 3 - Good</option>
-                            <option value="4"> 4 - Very Good</option>
-                            <option value="5"> 5 - Excellent</option>
-                        </select>
+                        {/* Interactive Stars Component */}
+                        <div className="flex items-center gap-1.5 mb-6">
+                            {[...Array(5)].map((_, index) => {
+                                const currentRating = index + 1;
+                                return (
+                                    <button
+                                        key={currentRating}
+                                        type="button"
+                                        className="transition-transform duration-100 active:scale-90"
+                                        onClick={() => setRating(currentRating)}
+                                        onMouseEnter={() => setHover(currentRating)}
+                                        onMouseLeave={() => setHover(0)}
+                                    >
+                                        <FaStar
+                                            size={26}
+                                            className={`transition-colors duration-200 cursor-pointer ${currentRating <= (hover || rating)
+                                                ? "text-amber-400"
+                                                : "text-gray-200"
+                                                }`}
+                                        />
+                                    </button>
+                                );
+                            })}
+                            {rating > 0 && (
+                                <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">
+                                    {rating}/5
+                                </span>
+                            )}
+                        </div>
                     </div>
-                    {/* Submit */}
+
+                    {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 rounded-lg transition"
+                        disabled={loading}
+                        className={`w-full font-semibold py-3 px-4 rounded-xl transition-all duration-300 shadow-sm flex items-center justify-center ${loading
+                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                            : 'bg-cyan-500 hover:bg-cyan-600 text-white hover:shadow-md hover:shadow-blue-100'
+                            }`}
                     >
-                        {
-                            loading ? 'posting..' : 'Submit Review'
-                        }
-
+                        {loading ? (
+                            <span className="flex items-center gap-2">
+                                <span className="h-4 w-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></span>
+                                Posting...
+                            </span>
+                        ) : (
+                            'Submit Review'
+                        )}
                     </button>
                 </div>
 

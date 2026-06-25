@@ -14,11 +14,11 @@ export const getOwnerData = async (userId) => {
     })
     return await res.json()
 }
-export const getOwnerlimitdata = async (search = "", page) => {
+export const getOwnerlimitdata = async (search = "", page, order) => {
     if (!page) {
         page = 1
     }
-    const res = await fetch(`${serverUri}/api/ownerlimidata?search=${search}&page=${page}`)
+    const res = await fetch(`${serverUri}/api/ownerlimidata?search=${search}&page=${page}&order=${order}`)
     return await res.json()
 }
 // get single dat by id

@@ -1,5 +1,6 @@
 import Chart from "@/component/Chart";
 import { getOwner, getUserData, totalBookingsData, totalPorperty, } from "@/lib/admin/getadmin";
+import { Suspense } from "react";
 
 
 import { FaUsers, FaUserTie, FaHome, FaCalendarCheck } from "react-icons/fa";
@@ -40,7 +41,7 @@ const DashboardCards = async () => {
     return (
         <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-4 md:p-8">
-                {cards.map((card, index) => (
+                {cards?.map((card, index) => (
                     <div
                         key={index}
                         className="bg-white rounded-xl shadow-md p-5 flex items-center justify-between hover:shadow-lg transition"
@@ -61,7 +62,10 @@ const DashboardCards = async () => {
                 ))}
 
             </div>
-            <Chart />
+            <Suspense fallback={<h1>loading...</h1>}>
+                <Chart bookingData={totalBookings} />
+            </Suspense>
+
         </div>
 
     );
