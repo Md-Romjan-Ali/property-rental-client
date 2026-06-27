@@ -13,7 +13,7 @@ export default async function TotalBookings() {
     return (
         <>
             {
-                properties?.length === 0 ?
+                bookded?.length === 0 ?
                     <Suspense>
                         <NotFoundData notFound={notFound} />
                     </Suspense>

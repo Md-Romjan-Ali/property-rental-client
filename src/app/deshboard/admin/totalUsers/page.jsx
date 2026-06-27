@@ -8,6 +8,7 @@ import { Suspense } from "react";
 
 export default async function UserTable() {
     const allusers = await getUserData()
+    console.log(allusers, 'from allusers')
     const notFound = {
         title: 'Empty Users',
         description: 'No User login or Create Acount yet',
