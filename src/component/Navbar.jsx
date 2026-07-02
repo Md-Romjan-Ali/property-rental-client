@@ -68,7 +68,7 @@ const Navbar = () => {
                                         <Dropdown.Item textValue="Profile">
                                             <Link
                                                 href={`/deshboard/${session?.user?.role}/profile`}
-                                                className="w-full block"
+                                                className="w-40 block"
                                             >
                                                 Profile
                                             </Link>
@@ -79,6 +79,14 @@ const Navbar = () => {
                                                 className="w-full block"
                                             >
                                                 Dashboard
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item textValue="All Property">
+                                            <Link
+                                                href={`/allProperty`}
+                                                className="w-full block"
+                                            >
+                                                All Property
                                             </Link>
                                         </Dropdown.Item>
                                         <Dropdown.Item variant="danger" textValue="Sign Out">
@@ -124,15 +132,15 @@ const Navbar = () => {
                                     <Button
                                         variant="ghost"
                                         aria-label="Menu"
-                                        className="text-white text-3xl border-cyan-400/40 hover:bg-cyan-500/20"
+                                        className="text-white bg-cyan-900 h-10 w-10 rounded-full text-3xl border-cyan-400/40 hover:bg-cyan-500/20"
                                     >
-                                        Menu
+                                        <MdMenu size={30} />
                                     </Button>
 
                                     <Dropdown.Popover>
                                         <Dropdown.Menu onAction={(key) => console.log(`Selected: ${key}`)}>
                                             <Dropdown.Item textValue="Home">
-                                                <Link href="/" className="w-full block py-1">Home</Link>
+                                                <Link href="/" className="w-40 block py-1">Home</Link>
                                             </Dropdown.Item>
 
                                             <Dropdown.Item textValue="All Properties">

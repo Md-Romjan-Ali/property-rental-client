@@ -3,6 +3,7 @@ import { deleteUserData } from '@/lib/admin/deleteadmin';
 import { Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { FaTrashAlt } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const DeleteUsers = ({ id }) => {
     const router = useRouter()

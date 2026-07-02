@@ -4,6 +4,7 @@ import { Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const DeleteOwnerProperty = ({ id }) => {
     const router = useRouter()

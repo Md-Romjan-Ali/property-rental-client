@@ -1,11 +1,13 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/component/Navbar";
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("@/component/Navbar"), {
+  loading: () => <p>Loading...</p>,
+});
 import Footer from "@/component/Footer";
 import { ToastContainer } from "react-toastify";
 import { Suspense } from "react";
 import { ThemeProvider } from "next-themes";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
