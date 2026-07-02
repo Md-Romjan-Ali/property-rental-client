@@ -9,8 +9,8 @@ const Baner = async () => {
     return (
         <div className='max-w-7xl mx-auto my-10 px-4'>
 
-            <h1 className='text-3xl md:text-4xl font-bold text-center text-gray-800'>
-                Available Homes
+            <h1 className='text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-gray-200'>
+                Available <span className='text-cyan-500 italic'> Properties</span> for Rent
             </h1>
 
             <p className='text-center text-gray-500 mt-2 mb-8'>

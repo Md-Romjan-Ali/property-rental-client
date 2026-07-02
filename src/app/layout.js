@@ -4,6 +4,7 @@ import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
 import { ToastContainer } from "react-toastify";
 import { Suspense } from "react";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,17 +31,18 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="">
-        <Suspense fallback={<h1>loading...</h1>}>
-          <Navbar />
+      <body className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <Suspense fallback={<h1>loading...</h1>}>
+            <Navbar />
+          </Suspense>
 
-        </Suspense>
-
-        {children}
-        <Suspense fallback={<h1>loading...</h1>}>
-          <Footer />
-        </Suspense>
-        <ToastContainer />
+          {children}
+          <Suspense fallback={<h1>loading...</h1>}>
+            <Footer />
+          </Suspense>
+          <ToastContainer />
+        </ThemeProvider>
       </body>
     </html>
   );

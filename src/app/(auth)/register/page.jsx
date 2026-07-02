@@ -33,7 +33,7 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[#0B0F19] px-4 selection:bg-emerald-500 selection:text-black">
+        <div className="min-h-screen flex items-center justify-center bg-slate-50/50 dark:bg-gray-950 px-4 selection:bg-emerald-500 selection:text-black">
 
             <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
             <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -42,9 +42,9 @@ const Register = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1, ease: 'easeIn' } }}
-                className="w-full max-w-md bg-[#111827] border border-gray-800 rounded-2xl shadow-2xl p-8 backdrop-blur-sm z-10">
+                className="w-full max-w-md bg-slate-50/50 dark:bg-[#111827] border border-gray-800 rounded-2xl shadow-2xl p-8 backdrop-blur-sm z-10">
                 <div className="text-center mb-8">
-                    <h2 className="text-3xl font-extrabold text-white tracking-tight mb-2">
+                    <h2 className="text-3xl font-extrabold dark:text-white text-gray-900 tracking-tight mb-2">
                         Create Account
                     </h2>
                     <p className="text-sm text-gray-400">
@@ -126,7 +126,7 @@ const Register = () => {
                     <div className="absolute inset-0 flex items-center">
                         <div className="w-full border-t border-gray-800"></div>
                     </div>
-                    <span className="relative px-3 bg-[#111827] text-xs font-semibold uppercase tracking-wider text-gray-500">
+                    <span className="relative bg-white text-black px-3 dark:bg-[#111827] text-xs font-semibold uppercase tracking-wider dark:text-gray-500">
                         OR
                     </span>
                 </div>
@@ -150,7 +150,7 @@ const Register = () => {
                     Already have an account?{" "}
                     <Link
                         href={"/login"}
-                        className="text-emerald-400 font-semibold hover:text-emerald-300 hover:underline transition-colors duration-200"
+                        className="dark:text-emerald-400 text-blue-700 font-semibold  hover:underline transition-colors duration-200"
                     >
                         Login
                     </Link>

@@ -8,12 +8,12 @@ import { redirect, usePathname } from 'next/navigation';
 import React from 'react';
 import { MdMenu } from 'react-icons/md';
 import Logo from './Logo';
+import { ThemeSwitch } from './Thememing';
 
 const Navbar = () => {
     const pathName = usePathname()
     const { data: session } = authClient.useSession()
-    const name = session?.user?.name.split(" ")[0]
-    console.log(session, 'from navabar');
+    const name = session?.user?.name?.split(" ")[0] || 'Guest'
     const logOutHanle = async () => {
         await authClient.signOut()
         redirect("/")
@@ -33,19 +33,20 @@ const Navbar = () => {
     }
 
     return (
-        <div className="sticky top-0 z-50 backdrop-blur-xl bg-gradient-to-r from-cyan-900/80 via-sky-800/80 to-blue-900/80 border-b border-cyan-400/20 shadow-lg">
-            <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between text-white">
+        <div className="sticky top-0 z-50 border-b border-cyan-400/20 bg-gradient-to-r from-cyan-950/90 via-sky-900/90 to-blue-950/90 shadow-lg backdrop-blur-xl">
+            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 text-white">
 
                 <Logo />
 
                 {/* CENTER (Desktop) */}
-                <ul className="hidden lg:flex gap-6 font-medium">
+                <ul className="hidden gap-6 text-sm font-medium lg:flex lg:text-base">
                     {LinksNav}
                     {session && LinksProfile}
                 </ul>
 
                 {/* RIGHT */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 md:gap-3">
+                    <ThemeSwitch />
                     {session ? (
                         <>
                             <Dropdown>
@@ -96,7 +97,7 @@ const Navbar = () => {
                             <div className="relative group">
                             </div>
 
-                            <span className="hidden text-xl md:block text-cyan-100 -ml-6 font-medium">
+                            <span className="hidden -ml-4 text-sm font-medium text-cyan-100 md:block md:text-base">
                                 Hi, {name}
                             </span>
                         </>
@@ -105,13 +106,13 @@ const Navbar = () => {
                             {/* Desktop Buttons */}
                             <div className="hidden lg:flex gap-3">
                                 <Link href="/login">
-                                    <button className="px-4 py-2 border border-cyan-300 text-cyan-200 rounded-lg hover:bg-cyan-500 hover:text-black transition">
+                                    <button className="rounded-lg border border-cyan-300/70 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:bg-cyan-500 hover:text-slate-950 md:text-base">
                                         Login
                                     </button>
                                 </Link>
 
                                 <Link href="/register">
-                                    <button className="px-4 py-2 bg-cyan-400 text-black rounded-lg hover:bg-cyan-300 transition">
+                                    <button className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 md:text-base">
                                         Create Account
                                     </button>
                                 </Link>

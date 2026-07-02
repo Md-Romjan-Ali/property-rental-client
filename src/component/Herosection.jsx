@@ -1,11 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules"; // এখানে EffectFade বাদ দেওয়া হয়েছে
+import { Autoplay } from "swiper/modules";
 import { motion } from "motion/react";
 import SearchSection from "./SearchSection";
 
-// শুধুমাত্র Swiper এর মূল CSS ইমপোর্ট করা হলো
 import "swiper/css";
 
 export default function HeroSection() {
@@ -49,7 +48,7 @@ export default function HeroSection() {
                     transition={{ duration: 1, ease: "easeIn" }}
                     className="text-4xl md:text-6xl font-bold leading-tight text-gray-300"
                 >
-                    Find Your Perfect <br /> Rental Home
+                    <span className="text-cyan-500 italic">Find</span> Your Perfect <br />Rental <span className="italic text-cyan-500">Home</span>
                 </motion.h1>
 
                 <motion.p

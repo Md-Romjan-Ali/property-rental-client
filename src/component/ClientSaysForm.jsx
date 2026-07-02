@@ -34,13 +34,13 @@ const ClientSays = () => {
         const client = await clientSays(clientSay);
         console.log(client, 'from client saysa');
         setLoading(false);
-        setRating(0); // Reset rating state
-        form.reset(); // Reset textarea
+        setRating(0);
+        form.reset();
     };
 
     return (
         <div className="max-w-3xl bg-white border border-gray-100 rounded-2xl shadow-sm p-6 md:p-8">
-            <h3 className="text-xl font-bold text-gray-800 mb-5">Leave a Review</h3>
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-5">Leave a Review</h3>
 
             <form onSubmit={clientHandle} className="flex flex-col md:flex-row gap-6 items-start">
 

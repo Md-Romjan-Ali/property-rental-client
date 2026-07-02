@@ -51,7 +51,7 @@ const OwnerPropertyTable = async () => {
                                                 />
                                             </td>
                                             {/* Property Name Column */}
-                                            <td className="px-6 py-4 whitespace-nowrap text-xl font-medium text-gray-800 capitalize">
+                                            <td className="px-6 py-4 whitespace-nowrap text-xl font-medium dark:text-gray-400 text-gray-800 capitalize">
                                                 {property?.propertyName}
                                             </td>
                                             {/* Create Date Column */}

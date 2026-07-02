@@ -48,18 +48,10 @@ export function Sidebar({ user }) {
             <div className="hidden md:flex">
                 <Logo />
             </div>
-            {/* <Link href="/" className=" items-center gap-3 mb-5">
-                <div className="p-2 rounded-full bg-cyan-50 border border-cyan-200">
-                    <IoHome size={24} className="text-cyan-600" />
-                </div>
-                <h1 className="text-2xl font-bold text-slate-800">
-                    Property
-                    <span className="text-cyan-600 italic">Hub </ span>
-                </h1>
-            </Link> */}
+
 
             {/* Dashboard Title */}
-            <h2 className="text-xl hidden md:flex items-center gap-2 font-semibold text-slate-700 my-6">
+            <h2 className="text-2xl hidden md:flex items-center gap-2 font-semibold text-slate-700 my-6">
                 <span className="text-cyan-600 font-bold capitalize">
                     {user?.role}
                 </span>{" "}
@@ -76,7 +68,7 @@ export function Sidebar({ user }) {
                             key={item.label}
                             className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200 ${active
                                 ? "bg-cyan-600 text-white font-medium shadow-md shadow-cyan-100"
-                                : "text-slate-600 hover:bg-cyan-50 hover:text-cyan-600"
+                                : "text-slate-600 hover:bg-cyan-700 hover:text-cyan-600"
                                 }`}
                         >
                             <item.icon className={`text-lg ${active ? "text-white" : ""}`} />
@@ -106,7 +98,7 @@ export function Sidebar({ user }) {
                                     <Drawer.Heading className="text-slate-800">
                                         <Logo />
 
-                                        <h2 className="text-xl flex items-center gap-2 font-semibold mt-3 text-slate-700 mb-6">
+                                        <h2 className="text-lg flex items-center gap-2 font-semibold mt-3 text-slate-700 mb-6">
                                             <span className="text-cyan-600 text-2xl font-bold capitalize">
                                                 {user?.role}
                                             </span>{" "}

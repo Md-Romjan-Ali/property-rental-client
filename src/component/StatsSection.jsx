@@ -38,7 +38,7 @@ const features = [
 
 export default function WhyChoosePropertyHub() {
     return (
-        <section className="py-24 bg-gradient-to-b from-slate-50 to-slate-100/60 px-6">
+        <section className="py-24 px-6">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header Section */}

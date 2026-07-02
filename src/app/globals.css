@@ -1,7 +1,131 @@
 @import "tailwindcss";
 @import "@heroui/styles";
 
-/* :root {
-    --accent: oklch(0.7 0.25 260);
-    --success: oklch(0.65 0.15 155);
-} */
+:root {
+    color-scheme: light;
+    font-size: 16px;
+    --surface-bg: #f8fbff;
+    --surface-card: #ffffff;
+    --surface-muted: #f8fafc;
+    --surface-elevated: #eef4ff;
+    --surface-strong: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-soft: rgba(15, 23, 42, 0.08);
+    --border-strong: rgba(15, 23, 42, 0.14);
+}
+
+html.dark {
+    color-scheme: dark;
+    --surface-bg: #020617;
+    --surface-card: #111827;
+    --surface-muted: #0f172a;
+    --surface-elevated: #172033;
+    --surface-strong: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-soft: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-elevated) 45%, var(--surface-card) 100%);
+    color: var(--text-primary);
+    font-family: var(--font-geist-sans), Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    color: inherit;
+}
+
+.bg-white {
+    background-color: var(--surface-card) !important;
+}
+
+.bg-slate-50,
+.bg-gray-50 {
+    background-color: var(--surface-muted) !important;
+}
+
+.bg-slate-100,
+.bg-gray-100 {
+    background-color: var(--surface-elevated) !important;
+}
+
+.bg-slate-200,
+.bg-gray-200 {
+    background-color: var(--surface-strong) !important;
+}
+
+.text-slate-900,
+.text-slate-800,
+.text-gray-900 {
+    color: var(--text-primary) !important;
+}
+
+.text-slate-700,
+.text-slate-600,
+.text-slate-500,
+.text-gray-700,
+.text-gray-600,
+.text-gray-500 {
+    color: var(--text-secondary) !important;
+}
+
+.text-slate-400,
+.text-slate-300,
+.text-gray-400 {
+    color: var(--text-muted) !important;
+}
+
+.border-slate-100,
+.border-slate-200,
+.border-gray-100,
+.border-gray-200 {
+    border-color: var(--border-soft) !important;
+}
+
+.border-slate-300,
+.border-gray-300 {
+    border-color: var(--border-strong) !important;
+}
+
+html.dark .from-slate-50 {
+    --tw-gradient-from: var(--surface-muted) !important;
+}
+
+html.dark .to-slate-100,
+html.dark .to-slate-100\/60,
+html.dark .to-slate-100\/50 {
+    --tw-gradient-to: var(--surface-elevated) !important;
+}
+
+::selection {
+    background: #38bdf8;
+    color: white;
+}

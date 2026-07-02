@@ -22,7 +22,7 @@ export default async function PropertyDetails({ params }) {
     const amenitiesList = property.amenities || [];
 
     return (
-        <div className="min-h-screen bg-slate-50/50 pb-16">
+        <div className="min-h-screen bg-slate-50/50 dark:bg-gray-950 pb-16">
 
 
             <div className="max-w-[1400px] mx-auto px-4 pt-6">
@@ -42,7 +42,7 @@ export default async function PropertyDetails({ params }) {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
 
                             {/* Floating Property Type Tag */}
-                            <div className="absolute top-4 left-4 backdrop-blur-md bg-white/85 dark:bg-slate-900/85 px-4 py-2 rounded-full shadow-sm flex items-center gap-2 border border-white/40">
+                            <div className="absolute top-4 left-4 backdrop-blur-md bg-white/85 dark:bg-slate-900/20 px-4 py-2 rounded-full shadow-sm flex items-center gap-2 border border-white/40">
                                 <FaHome size={18} className="text-indigo-600" />
                                 <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                                     {property.propertyType}

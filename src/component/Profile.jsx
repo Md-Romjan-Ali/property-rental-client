@@ -30,7 +30,7 @@ const UserProfile = ({ user }) => {
     return (
         <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden mt-6">
             {/* Top Decorative Banner */}
-            <div className="h-24 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+            <div className="h-24 bg-gradient-to-r from-cyan-700 to-cyan-400"></div>
 
             {/* Profile Content */}
             <div className="relative px-6 pb-6 text-center">
@@ -47,7 +47,7 @@ const UserProfile = ({ user }) => {
 
                 {/* User Info Breakdown */}
                 <div className="pt-14">
-                    <h2 className="text-2xl font-bold text-gray-800 tracking-tight">
+                    <h2 className="text-2xl font-bold text-cyan-500 tracking-tight">
                         {user?.name}
                     </h2>
                     <p className="text-sm text-gray-500 mt-0.5">{user.email}</p>
@@ -75,7 +75,7 @@ const UserProfile = ({ user }) => {
                 {/* Edit Profile Action Button */}
                 <button
                     onClick={handleEdit}
-                    className="mt-6 w-full inline-flex justify-center items-center space-x-2 px-4 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium text-sm rounded-xl transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98]"
+                    className="mt-6 w-full inline-flex justify-center items-center space-x-2 px-4 py-2.5 bg-cyan-700 hover:bg-cyan-600 text-white font-medium text-sm rounded-xl transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98]"
                 >
                     <FaEdit size={16} />
                     <span>Edit Profile</span>
