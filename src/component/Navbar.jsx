@@ -130,7 +130,7 @@ const Navbar = () => {
                             <div className="relative group">
                             </div>
 
-                            <span className="hidden -ml-4 text-sm font-medium text-cyan-100 md:block md:text-base">
+                            <span className="hidden -ml-4 text-xl font-medium text-cyan-100 md:block">
                                 Hi, {name}
                             </span>
                         </>
