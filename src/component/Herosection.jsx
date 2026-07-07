@@ -55,7 +55,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.5, ease: "easeIn" }}
-                    className="mt-4 text-sm md:text-lg text-gray-200"
+                    className="mt-4 text-sm md:text-lg tracking-wider text-gray-100"
                 >
                     Discover comfortable, affordable and verified rental properties <br />
                     in your desired location. Book your next home easily and safely.

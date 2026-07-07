@@ -20,14 +20,14 @@ const SearchSection = () => {
         <motion.div
             initial={{
                 opacity: 0,
-                x: -50,
-                y: 50
+                x: -20,
+                y: 20
             }}
             animate={{
                 opacity: 1,
                 x: 0,
                 y: 0,
-                transition: { duration: 0.9, ease: 'easeIn' }
+                transition: { duration: 0.5, ease: 'easeIn' }
             }}
             className="p-6 md:p-10 bg-gray-300/50 backdrop-blur-md rounded-2xl max-w-5xl mx-auto shadow-lg mt-10">
             <form

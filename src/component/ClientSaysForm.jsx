@@ -3,6 +3,7 @@ import { clientSays } from '@/lib/owner/ownerpost';
 import { userSession } from '@/lib/session';
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
 
 const ClientSays = () => {
     const [loading, setLoading] = useState(false);
@@ -34,6 +35,7 @@ const ClientSays = () => {
         const client = await clientSays(clientSay);
         console.log(client, 'from client saysa');
         setLoading(false);
+        toast.success("Your review has been submitted successfully")
         setRating(0);
         form.reset();
     };

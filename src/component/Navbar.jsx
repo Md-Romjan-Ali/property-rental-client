@@ -5,7 +5,7 @@ import { Button, Dropdown } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect, usePathname } from 'next/navigation';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdMenu } from 'react-icons/md';
 import Logo from './Logo';
 import { ThemeSwitch } from './Thememing';
@@ -14,10 +14,32 @@ const Navbar = () => {
     const pathName = usePathname()
     const { data: session } = authClient.useSession()
     const name = session?.user?.name?.split(" ")[0] || 'Guest'
+
+    // State variables to track navigation visibility and scroll position
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
     const logOutHanle = async () => {
         await authClient.signOut()
         redirect("/")
     }
+    useEffect(() => {
+        const scrollHandle = () => {
+            const currentScrolly = window.scrollY
+            if (currentScrolly < 10) {
+                setIsVisible(true)
+            }
+            else if (currentScrolly > lastScrollY) {
+                setIsVisible(false)
+            }
+            else {
+                setIsVisible(true)
+            }
+            setLastScrollY(currentScrolly)
+        }
+        window.addEventListener('scroll', scrollHandle, { passive: true })
+        return () => window.removeEventListener('scroll', scrollHandle)
+    }, [lastScrollY])
 
     const LinksNav = <>
         <li className={`${pathName === '/' && 'border-b-4 pb-1'}`}><Link href={'/'}>Home</Link></li>
@@ -33,7 +55,10 @@ const Navbar = () => {
     }
 
     return (
-        <div className="sticky top-0 z-50 border-b border-cyan-400/20 bg-gradient-to-r from-cyan-950/90 via-sky-900/90 to-blue-950/90 shadow-lg backdrop-blur-xl">
+        <div
+            className={`sticky top-0 z-50 w-full border-b border-cyan-400/20 bg-gradient-to-r from-cyan-950/90 via-sky-900/90 to-blue-950/90 shadow-lg backdrop-blur-xl transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'
+                }`}
+        >
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 text-white">
 
                 <Logo />
@@ -46,7 +71,7 @@ const Navbar = () => {
 
                 {/* RIGHT */}
                 <div className="flex items-center gap-2 md:gap-3">
-                    <ThemeSwitch />
+
                     {session ? (
                         <>
                             <Dropdown>
@@ -179,6 +204,7 @@ const Navbar = () => {
                             </div>
                         </>
                     )}
+                    <ThemeSwitch />
                 </div>
             </div>
         </div>

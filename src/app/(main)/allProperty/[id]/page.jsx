@@ -178,7 +178,7 @@ export default async function PropertyDetails({ params }) {
                                         <span className="text-sm text-slate-500 font-semibold">/mo</span>
                                     </div>
                                 </div>
-                                <div className="p-4 bg-emerald-500 text-white rounded-2xl shadow-lg shadow-emerald-500/20">
+                                <div className="p-4 bg-cyan-600 text-white rounded-2xl shadow-lg shadow-emerald-500/20">
                                     <FaMoneyBillWave size={22} />
                                 </div>
                             </div>
