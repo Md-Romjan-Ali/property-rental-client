@@ -10,11 +10,7 @@ A modern full-stack property rental and booking platform that connects property 
 
 # 📸 Screenshot
 
-> Replace the image URL with your latest project screenshot.
-
-<p align="center">
-  <img src="YOUR_SCREENSHOT_URL" alt="Property Rental Booking Platform" width="100%">
-</p>
+  <img src="[YOUR_SCREENSHOT_URL](https://i.ibb.co.com/W459yLD6/Whats-App-Image-2026-06-27-at-9-56-27-PM.jpg)" alt="Property Rental Booking Platform" width="100%">
 
 ---
 
@@ -105,37 +101,6 @@ A modern full-stack property rental and booking platform that connects property 
 
 ---
 
-# 📦 Dependencies
-
-## Client
-
-```bash
-next
-react
-tailwindcss
-@heroui/react
-axios
-react-icons
-react-hot-toast
-framer-motion
-```
-
-## Server
-
-```bash
-express
-mongodb
-dotenv
-cors
-cookie-parser
-jsonwebtoken
-better-auth
-```
-
-> Replace the dependency list with the exact packages from your `package.json` files.
-
----
-
 # 💻 Run Locally
 
 ## 1. Clone the repositories
@@ -143,13 +108,13 @@ better-auth
 ### Client
 
 ```bash
-git clone https://github.com/your-username/property-rental-client.git
+git clone https://github.com/Md-Romjan-Ali/property-rental-client.git
 ```
 
 ### Server
 
 ```bash
-git clone https://github.com/your-username/property-rental-server.git
+git clone https://github.com/Md-Romjan-Ali/property-rental-server.git
 ```
 
 ---
@@ -172,13 +137,13 @@ npm install
 
 ## 4. Configure environment variables
 
-### Client (.env.local)
+### Client (`.env.local`)
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
-### Server (.env)
+### Server (`.env`)
 
 ```env
 PORT=5000
@@ -215,7 +180,6 @@ npm run dev
 ```
 http://localhost:3000
 ```
-
 ---
 
 # 🔗 Resources
@@ -226,15 +190,11 @@ https://property-renteal-booking-platformcl.vercel.app
 
 ### 💻 Client Repository
 
-https://github.com/your-username/property-rental-client
+https://github.com/Md-Romjan-Ali/property-rental-client
 
 ### ⚙️ Server Repository
 
-https://github.com/your-username/property-rental-server
-
-### 📖 API Documentation
-
-Coming Soon
+https://github.com/Md-Romjan-Ali/property-rental-server
 
 ---
 
@@ -242,12 +202,12 @@ Coming Soon
 
 **Md Romjan Ali**
 
-Full Stack Web Developer (MERN Stack)
+**GitHub:** https://github.com/Md-Romjan-Ali
 
-- 🌐 Portfolio: https://romjanportfolio.vercel.app
-- 💼 LinkedIn: https://www.linkedin.com/in/md-romjan-ali/
-- 💻 GitHub: https://github.com/your-github-username
+**LinkedIn:** https://www.linkedin.com/in/md-romjan-ali/
+
+**Portfolio:** https://romjanportfolio.vercel.app
 
 ---
 
-⭐ **If you found this project helpful, please consider giving it a star!**
+⭐ **If you found this project helpful, don't forget to give it a star!**
