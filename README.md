@@ -10,7 +10,7 @@ A modern full-stack property rental and booking platform that connects property 
 
 # 📸 Screenshot
 
-  <img src="[YOUR_SCREENSHOT_URL](https://i.ibb.co.com/W459yLD6/Whats-App-Image-2026-06-27-at-9-56-27-PM.jpg)" alt="Property Rental Booking Platform" width="100%">
+  <img src="https://i.ibb.co.com/W459yLD6/Whats-App-Image-2026-06-27-at-9-56-27-PM.jpg" alt="Property Rental Booking Platform" width="100%">
 
 ---
 
