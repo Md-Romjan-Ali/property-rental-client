@@ -1,12 +1,8 @@
-"use server"
-import { headers } from "next/headers"
-import { auth } from "../auth"
+import { authToken } from "../token"
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
 export const deleteOwnerData = async (id) => {
-    const token = await auth.api.getToken({
-        headers: await headers()
-    })
+    const token = await authToken()
     const res = await fetch(`${serverUri}/api/ownerdata/${id}`, {
         method: "DELETE",
         headers: {
