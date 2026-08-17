@@ -1,104 +1,213 @@
-# Property Rental Booking Platform
+# 🏡 Property Rental Booking Platform
 
-A full-stack property rental and booking platform that connects property owners with tenants. Users can browse rental properties, view detailed property information, save favorites, submit booking requests, and manage their rental activities through role-based dashboards.
+A modern full-stack property rental and booking platform that connects property owners with tenants. Users can explore rental properties, view detailed information, save favorite listings, submit booking requests, and manage their rental activities through secure role-based dashboards.
 
-## Live Demo
+## 🌐 Live Demo
+
+**Live Website:** https://property-renteal-booking-platformcl.vercel.app
+
+---
+
+# 📸 Screenshot
+
+  <img src="https://i.ibb.co.com/kVgh5p3d/Whats-App-Image-2026-06-27-at-9-56-27-PM.jpg" alt="Property Rental Booking Platform" width="100%">
+
+---
+
+# 🚀 Technologies Used
+
+## Frontend
+
+- Next.js
+- React.js
+- Tailwind CSS
+- HeroUI
+- React Icons
+- React Hot Toast
+- Axios
+
+## Backend
+
+- Node.js
+- Express.js
+
+## Database
+
+- MongoDB
+
+## Authentication
+
+- Better Auth
+- JWT Authentication
+
+## Deployment
+
+- Vercel
+
+---
+
+# ✨ Core Features
+
+## 👤 Authentication & Authorization
+
+- User registration and login
+- Secure authentication using Better Auth & JWT
+- Protected routes
+- Role-based access control (Admin, Owner, Renter)
+
+## 🏠 Property Management
+
+- Add new property listings
+- Update property information
+- Delete property listings
+- Upload property images
+- Browse detailed property pages
+- Search and filter properties by location and category
+
+## 📅 Booking Management
+
+- Submit booking requests
+- Approve or reject booking requests
+- Track booking status
+- View booking history
+
+## ❤️ Favorites
+
+- Save favorite properties
+- Remove properties from favorites
+- Manage saved property list
+
+## 📊 Dashboard
+
+### Renter Dashboard
+
+- Manage bookings
+- View favorite properties
+- Update profile
+
+### Owner Dashboard
+
+- Manage property listings
+- View booking requests
+- Approve or reject requests
+- Monitor property performance
+
+### Admin Dashboard
+
+- Manage users
+- Manage owner accounts
+- Monitor platform activities
+- Manage property listings
+
+---
+
+# 💻 Run Locally
+
+## 1. Clone the repositories
+
+### Client
+
+```bash
+git clone https://github.com/Md-Romjan-Ali/property-rental-client.git
+```
+
+### Server
+
+```bash
+git clone https://github.com/Md-Romjan-Ali/property-rental-server.git
+```
+
+---
+
+## 2. Navigate to the project
+
+```bash
+cd property-rental-client
+```
+
+---
+
+## 3. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 4. Configure environment variables
+
+### Client (`.env.local`)
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+### Server (`.env`)
+
+```env
+PORT=5000
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_jwt_secret
+
+BETTER_AUTH_SECRET=your_better_auth_secret
+
+CLIENT_URL=http://localhost:3000
+```
+
+---
+
+## 5. Start the backend
+
+```bash
+npm run dev
+```
+
+---
+
+## 6. Start the frontend
+
+```bash
+npm run dev
+```
+
+---
+
+## 7. Visit
+
+```
+http://localhost:3000
+```
+---
+
+# 🔗 Resources
+
+### 🌍 Live Website
 
 https://property-renteal-booking-platformcl.vercel.app
 
----
+### 💻 Client Repository
 
-## Features
+https://github.com/Md-Romjan-Ali/property-rental-client
 
-### For Renters
+### ⚙️ Server Repository
 
-* Browse available rental properties
-* Search and filter properties by category and location
-* View detailed property information
-* Save favorite properties
-* Submit booking requests
-* Track booking status
-* Manage personal profile
-
-### For Property Owners
-
-* Add new property listings
-* Upload property images
-* Update property information
-* Manage booking requests
-* Approve or reject tenant requests
-* Track property performance
-
-### For Administrators
-
-* Manage users and roles
-* Monitor property listings
-* Review booking activities
-* Approve or manage owner accounts
-* Manage platform content
+https://github.com/Md-Romjan-Ali/property-rental-server
 
 ---
 
-## Technology Stack
+# 👨‍💻 Author
 
-### Frontend
+**Md Romjan Ali**
 
-* Next.js
-* React.js
-* Tailwind CSS
-* HeroUI
-* React Icons
-* React Hot Toast
+**GitHub:** https://github.com/Md-Romjan-Ali
 
-### Backend
+**LinkedIn:** https://www.linkedin.com/in/md-romjan-ali/
 
-* Express.js
-* Node.js
-
-### Database
-
-* MongoDB
-
-### Authentication
-
-* Better Auth / JWT Authentication
-
-### Deployment
-
-* Vercel
+**Portfolio:** https://romjanportfolio.vercel.app
 
 ---
 
-## Core Functionalities
-
-### Authentication & Authorization
-
-* User Registration
-* User Login
-* Protected Routes
-* Role-Based Access Control
-* JWT Authentication
-
-### Property Management
-
-* Add Property
-* Update Property
-* Delete Property
-* Property Details Page
-* Property Search & Filtering
-
-### Booking System
-
-* Create Booking Request
-* Approve Booking
-* Reject Booking
-* Booking Status Tracking
-
-### Favorites System
-
-* Add to Favorites
-* Remove from Favorites
-* View Saved Properties
-
----
----
+⭐ **If you found this project helpful, don't forget to give it a star!**
