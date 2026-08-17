@@ -66,7 +66,7 @@ export default async function RequestTable() {
                                     {requests?.map((item) => (
                                         <tr
                                             key={item._id}
-                                            className="border-t border-slate-100 hover:bg-slate-50 transition"
+                                            className="border-t-2 hover:bg-slate-50 dark:hover:bg-gray-950 border-slate-100  transition"
                                         >
                                             <td className="px-5 py-4 font-medium text-slate-800">
                                                 {item.title}
@@ -89,7 +89,7 @@ export default async function RequestTable() {
                                                         <FaTimesCircle />
                                                     )}
 
-                                                    {item.status === "Approved" ? 'Paid Success' : 'Paid Pending'}
+                                                    {item.status === "Approved" ? 'Payment Successful' : 'Payment Pending'}
                                                 </span>
                                             </td>
 
