@@ -1,13 +1,9 @@
-"use server"
-import { headers } from "next/headers"
-import { auth } from "../auth"
+import { authToken } from "../token"
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
 // update status
 export const updateOwnerData = async (id, data) => {
-    const token = await auth.api.getToken({
-        headers: await headers()
-    })
+    const token = await authToken()
     const res = await fetch(`${serverUri}/api/postbooking/${id}`, {
         method: "PATCH",
         headers: {
@@ -20,9 +16,7 @@ export const updateOwnerData = async (id, data) => {
 }
 // update all data
 export const updateOwnerallData = async (id, data) => {
-    const token = await auth.api.getToken({
-        headers: await headers()
-    })
+    const token = await authToken()
     const res = await fetch(`${serverUri}/api/updateowner/${id}`, {
         method: "PATCH",
         headers: {

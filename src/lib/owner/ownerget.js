@@ -1,12 +1,11 @@
 "use server"
 import { headers } from "next/headers";
 import { auth } from "../auth";
+import { authToken } from "../token";
 
 const serverUri = process.env.NEXT_PUBLIC_API_URL
 export const getOwnerData = async (userId) => {
-    const token = await auth.api.getToken({
-        headers: await headers()
-    })
+    const token = await authToken()
     const res = await fetch(`${serverUri}/api/ownerdata?userId=${userId}`, {
         headers: {
             authorization: `Bearer ${token?.token}`
@@ -33,9 +32,7 @@ export const reviewFromCliet = async () => {
 }
 // my property booked
 export const getBookedData = async (ownerId) => {
-    const token = await auth.api.getToken({
-        headers: await headers()
-    })
+    const token = await authToken()
     const res = await fetch(`${serverUri}/api/postbooking?ownerId=${ownerId}`, {
         headers: {
             authorization: `Bearer ${token?.token}`
