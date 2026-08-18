@@ -1,10 +1,10 @@
 "use client"
 import { deleteData, deleteFavouriteData } from '@/lib/tanant/tanantdelete';
-import { Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-
+import { Button, Modal } from "@heroui/react";
+import { BiRocket } from 'react-icons/bi';
 const DeleteHandle = ({ id }) => {
     const router = useRouter()
     const HandleDelete = async () => {
@@ -26,21 +26,20 @@ const DeleteHandle = ({ id }) => {
                             <Modal.CloseTrigger />
                             <Modal.Header>
                                 <Modal.Icon className="bg-default text-foreground">
-                                    <Rocket className="size-5" />
+                                    <BiRocket className="size-5" />
                                 </Modal.Icon>
-                                <Modal.Heading>Welcome to HeroUI</Modal.Heading>
+                                <Modal.Heading>Are You Sure!</Modal.Heading>
                             </Modal.Header>
                             <Modal.Body>
                                 <p>
-                                    A beautiful, fast, and modern React UI library for building accessible and
-                                    customizable web applications with ease.
+                                    Are you sure you want to parmanently delete this property
                                 </p>
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button className="w-full" slot="close">
+                                <Button variant='ghost' className="w-full" slot="close">
                                     Close
                                 </Button>
-                                <Button variant='danger-soft' onClick={HandleDelete} slot={'close'}>
+                                <Button variant='primary' onClick={HandleDelete} slot={'close'}>
                                     Confirm
                                 </Button>
                             </Modal.Footer>
