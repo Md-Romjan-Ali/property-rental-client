@@ -2,7 +2,7 @@
 
 import { userSession } from "@/lib/session";
 import { favouritePost } from "@/lib/tanant/tanantpost";
-import { Button } from "@heroui/react";
+import { Button, Spinner } from "@heroui/react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -24,7 +24,7 @@ const AddFavouriteHandle = ({ property }) => {
     return (
 
         <Button variant="secondary" className="w-full py-3" onClick={favouriteHandle}>
-            {loading ? 'loading...' : ' Add To Favourite'}
+            {loading ? <Spinner color="current" /> : ' Add To Favourite'}
         </Button>
     );
 };

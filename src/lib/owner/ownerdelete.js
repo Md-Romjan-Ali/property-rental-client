@@ -1,13 +1,5 @@
-import { authToken } from "../token"
+import { deleteFetchData } from "../tanant/tanantdelete"
 
-const serverUri = process.env.NEXT_PUBLIC_API_URL
 export const deleteOwnerData = async (id) => {
-    const token = await authToken()
-    const res = await fetch(`${serverUri}/api/ownerdata/${id}`, {
-        method: "DELETE",
-        headers: {
-            authorization: `Bearer ${token?.token}`
-        }
-    })
-    return await res.json()
+    return deleteFetchData(`/api/ownerdata/${id}`)
 }

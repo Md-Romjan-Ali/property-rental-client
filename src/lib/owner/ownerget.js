@@ -1,17 +1,19 @@
-"use server"
-import { headers } from "next/headers";
-import { auth } from "../auth";
 import { authToken } from "../token";
-
 const serverUri = process.env.NEXT_PUBLIC_API_URL
-export const getOwnerData = async (userId) => {
+
+export const fetchGetData = async (endPoint) => {
     const token = await authToken()
-    const res = await fetch(`${serverUri}/api/ownerdata?userId=${userId}`, {
+    const res = await fetch(`${serverUri}${endPoint}`, {
         headers: {
             authorization: `Bearer ${token?.token}`
         }
     })
     return await res.json()
+}
+
+
+export const getOwnerData = async (userId) => {
+    return fetchGetData(`/api/ownerdata?userId=${userId}`)
 }
 export const getOwnerlimitdata = async (search = "", page, order) => {
     if (!page) {
@@ -32,11 +34,5 @@ export const reviewFromCliet = async () => {
 }
 // my property booked
 export const getBookedData = async (ownerId) => {
-    const token = await authToken()
-    const res = await fetch(`${serverUri}/api/postbooking?ownerId=${ownerId}`, {
-        headers: {
-            authorization: `Bearer ${token?.token}`
-        }
-    })
-    return await res.json()
+    return fetchGetData(`/api/postbooking?ownerId=${ownerId}`)
 }
