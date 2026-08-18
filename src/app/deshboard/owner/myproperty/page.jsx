@@ -44,7 +44,7 @@ const PropertyTable = async () => {
                                 </thead>
                                 <tbody className="divide-y divide-gray-200">
                                     {properties.map((property) => (
-                                        <tr key={property._id} className="hover:bg-gray-50 transition-colors">
+                                        <tr key={property._id} className="hover:bg-gray-50 transition-all duration-100 dark:hover:bg-gray-700">
                                             {/* Image Column */}
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <Image

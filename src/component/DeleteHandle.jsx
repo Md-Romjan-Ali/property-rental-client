@@ -18,7 +18,36 @@ const DeleteHandle = ({ id }) => {
     }
     return (
         <div>
-            <Button variant='danger-soft' onClick={HandleDelete}><FaTrash size={20} color='red' /></Button>
+            <Modal>
+                <Button variant="danger-soft"><FaTrash size={20} color='red' /></Button>
+                <Modal.Backdrop>
+                    <Modal.Container>
+                        <Modal.Dialog className="sm:max-w-[360px]">
+                            <Modal.CloseTrigger />
+                            <Modal.Header>
+                                <Modal.Icon className="bg-default text-foreground">
+                                    <Rocket className="size-5" />
+                                </Modal.Icon>
+                                <Modal.Heading>Welcome to HeroUI</Modal.Heading>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <p>
+                                    A beautiful, fast, and modern React UI library for building accessible and
+                                    customizable web applications with ease.
+                                </p>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button className="w-full" slot="close">
+                                    Close
+                                </Button>
+                                <Button variant='danger-soft' onClick={HandleDelete} slot={'close'}>
+                                    Confirm
+                                </Button>
+                            </Modal.Footer>
+                        </Modal.Dialog>
+                    </Modal.Container>
+                </Modal.Backdrop>
+            </Modal>
         </div>
     );
 };

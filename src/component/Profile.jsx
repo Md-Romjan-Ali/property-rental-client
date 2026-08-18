@@ -3,28 +3,10 @@ import Image from 'next/image';
 import { FaEdit } from 'react-icons/fa';
 
 const UserProfile = ({ user }) => {
-    // Your provided user data
-    // const user = {
-    //     _id: {
-    //         $oid: "6a33aa34d9ba6022dca516d9"
-    //     },
-    //     name: "Md Romjan Ali",
-    //     email: "tanant@gmail.com",
-    //     emailVerified: false,
-    //     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv1a3iA8eqCsB_s3Yh8XJDVgN4H1KCwnuaqegb-YG-ynm2uEXXS2smE68B&s=10",
-    //     createdAt: {
-    //         $date: "2026-06-18T08:20:04.789Z"
-    //     },
-    //     updatedAt: {
-    //         $date: "2026-06-18T08:20:04.789Z"
-    //     },
-    //     role: "tanant",
-    //     banned: false
-    // };
-
 
     const handleEdit = () => {
         // console.log("Edit profile clicked for:", user._id.$oid);
+        alert("Not work yet")
     };
 
     return (
