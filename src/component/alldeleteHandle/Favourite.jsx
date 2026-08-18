@@ -1,6 +1,7 @@
 "use client"
 
 import { deleteFavouriteData } from '@/lib/tanant/tanantdelete';
+import { Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
@@ -15,7 +16,7 @@ const FavouriteDelete = ({ id }) => {
     }
     return (
         <div>
-            <button onClick={HandleDelete}><FaTrash size={20} color='red' /></button>
+            <Button variant='danger-soft' onClick={HandleDelete}><FaTrash size={20} color='red' /></Button>
         </div>
     );
 };
