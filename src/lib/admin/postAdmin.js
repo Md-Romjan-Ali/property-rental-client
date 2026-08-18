@@ -1,23 +1,19 @@
-"use server"
-
-import { headers } from "next/headers"
-import { auth } from "../auth"
-
-
+import { authToken } from "../token"
 const serverUri = process.env.NEXT_PUBLIC_API_URL
 
-export const postRejectMessage = async (message) => {
-    const { token } = await auth.api.getToken({
-        headers: await headers()
-    })
-    const res = await fetch(`${serverUri}/api/rejectowner`, {
+export const postData = async (endPoint, data) => {
+    const token = await authToken()
+    const res = await fetch(`${serverUri}${endPoint}`, {
         method: 'POST',
-
         headers: {
             'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
+            authorization: `Bearer ${token?.token}`
         },
-        body: JSON.stringify(message)
+        body: JSON.stringify(data)
     })
     return await res.json()
+}
+
+export const postRejectMessage = async (message) => {
+    return postData(`/api/rejectowner`, message)
 }
