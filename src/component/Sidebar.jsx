@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaUsers } from "react-icons/fa";
 import { GiSelfLove } from "react-icons/gi";
 import { HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosAddCircleOutline, IoMdMenu } from "react-icons/io";
 import { IoHome, IoReceiptOutline } from "react-icons/io5";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
 import Logo from "./Logo";
@@ -82,11 +82,9 @@ export function Sidebar({ user }) {
             <div className="md:hidden">
                 <Drawer>
                     <Button
-                        variant="secondary"
-                        className="w-full bg-cyan-50 text-cyan-700 border border-cyan-200"
+                        variant="ghost"
                     >
-                        <Menu size={20} />
-                        Menu
+                        <IoMdMenu size={25}/>
                     </Button>
 
                     <Drawer.Backdrop>

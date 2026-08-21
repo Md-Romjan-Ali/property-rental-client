@@ -34,13 +34,12 @@ export default async function RequestTable() {
                 requests?.length === 0 ?
                     <Suspense fallback={<h1>loading...</h1>}>
                         <NotFoundData notFound={notFound} />
-
                     </Suspense>
                     :
 
-                    <div className="container w-full">
+                    <div className="container w-full relative">
                         <h1 className='text-3xl font-bold text-gray-600 my-4'>My Booking <span className='text-cyan-500'>Properties</span></h1>
-                        <div className="overflow-x-auto max-w-full rounded-lg shadow-md border border-gray-200">
+                        <div className="overflow-x-auto max-w-full absolute rounded-lg shadow-md border border-gray-200">
                             <table className="min-w-full bg-white divide-y divide-gray-200 text-left text-lg font-light text-gray-900">
                                 <thead className="bg-slate-50">
                                     <tr>
