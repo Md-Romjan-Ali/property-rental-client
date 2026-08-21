@@ -51,7 +51,7 @@ const FavouritePage = async () => {
                                     {favourite?.map((item) => (
                                         <tr
                                             key={item._id}
-                                            className="border-t hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-75"
+                                            className="border-t hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300"
                                         >
 
                                             {/* Image */}

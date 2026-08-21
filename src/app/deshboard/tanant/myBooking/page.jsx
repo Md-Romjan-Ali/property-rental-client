@@ -40,7 +40,7 @@ export default async function RequestTable() {
 
                     <div className="container w-full">
                         <h1 className='text-3xl font-bold text-gray-600 my-4'>My Booking <span className='text-cyan-500'>Properties</span></h1>
-                        <div className="overflow-x-auto rounded-lg shadow-md border border-gray-200">
+                        <div className="overflow-x-auto max-w-full rounded-lg shadow-md border border-gray-200">
                             <table className="min-w-full bg-white divide-y divide-gray-200 text-left text-lg font-light text-gray-900">
                                 <thead className="bg-slate-50">
                                     <tr>
@@ -66,7 +66,7 @@ export default async function RequestTable() {
                                     {requests?.map((item) => (
                                         <tr
                                             key={item._id}
-                                            className="border-t-2 hover:bg-slate-50 dark:hover:bg-gray-950 border-slate-100  transition"
+                                            className="border-t-2 hover:bg-slate-50 dark:hover:bg-gray-950 border-slate-100  transition duration-300"
                                         >
                                             <td className="px-5 py-4 font-medium text-slate-800">
                                                 {item.title}

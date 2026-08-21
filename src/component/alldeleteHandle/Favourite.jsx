@@ -39,7 +39,9 @@ const FavouriteDelete = ({ id }) => {
                                 <Button className="w-full" variant='ghost' slot="close">
                                     Close
                                 </Button>
-                                <Button variant='primary' onClick={HandleDelete} slot={'close'}></Button>
+                                <Button variant='primary' onClick={HandleDelete} slot={'close'}>
+                                    Confirm
+                                </Button>
                             </Modal.Footer>
                         </Modal.Dialog>
                     </Modal.Container>
