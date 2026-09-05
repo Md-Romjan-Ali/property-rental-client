@@ -29,11 +29,11 @@ const FavouritePage = async () => {
 
                     :
 
-                    <div className="container w-full">
+                    <div className="container w-full relative">
                         <h1 className='text-3xl font-bold text-gray-600 my-4'>My Favourite<span className='text-cyan-500'> Properties</span></h1>
 
                         <div className="overflow-x-auto rounded-lg shadow-md border border-gray-200">
-                            <table className="min-w-full bg-white divide-y divide-gray-200 text-left text-lg font-light text-gray-900">
+                            <table className="min-w-full absolute bg-white divide-y divide-gray-200 text-left text-lg font-light text-gray-900">
 
                                 {/* Table Head */}
                                 <thead className="bg-gray-100 text-left text-sm text-gray-600 uppercase">
@@ -51,8 +51,7 @@ const FavouritePage = async () => {
                                     {favourite?.map((item) => (
                                         <tr
                                             key={item._id}
-                                            className="border-t hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300"
-                                        >
+                                            className="border-t hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300">
 
                                             {/* Image */}
                                             <td className="p-3">

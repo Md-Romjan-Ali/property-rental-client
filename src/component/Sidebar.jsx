@@ -81,12 +81,10 @@ export function Sidebar({ user }) {
             {/* Mobile Drawer */}
             <div className="md:hidden">
                 <Drawer>
-                    <Button
-                        variant="ghost"
-                    >
-                        <IoMdMenu size={25}/>
-                    </Button>
-
+                        <Button
+                            variant="ghost">
+                            <IoMdMenu size={30} />
+                        </Button>
                     <Drawer.Backdrop>
                         <Drawer.Content placement="left" className="bg-white">
                             <Drawer.Dialog>
