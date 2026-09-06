@@ -18,7 +18,7 @@ const DeshboardLayout = async ({ children }) => {
                     </div>
 
                 </div>
-                <div className='flex-1 mt-10 md:m-10 mx-auto'>
+                <div className='flex-1 mt-15 md:m-10 mx-auto'>
                     {children}
                 </div>
             </div>
