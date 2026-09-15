@@ -13,7 +13,7 @@ export default function HeroSection() {
         "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
         "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
     ];
-
+    const letters = ["R", "e", "n", "t", "a", "l"];
     return (
         <section className="relative h-[80vh] w-full flex items-center justify-center text-white overflow-hidden pt-10">
 
@@ -48,7 +48,20 @@ export default function HeroSection() {
                     transition={{ duration: 1, ease: "easeIn" }}
                     className="text-4xl md:text-6xl font-bold leading-tight text-gray-300"
                 >
-                    <span className="text-cyan-500 italic">Find</span> Your Perfect <br />Rental <span className="italic text-cyan-500">Home</span>
+                    <span className="text-cyan-500 italic">Find</span> Your Perfect <br />
+                    <motion.span
+                        className="inline-block origin-center"
+                        animate={{
+                            rotate: [-8, 8, -8],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        Rental
+                    </motion.span> <span className="italic text-cyan-500">Home</span>
                 </motion.h1>
 
                 <motion.p
