@@ -41,9 +41,9 @@ export default function HeroSection() {
 
             <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
 
-            <div className="relative z-20 text-center max-w-5xl px-4">
+            <div className="relative z-20 mt-12 sm:mt-0 text-center max-w-5xl px-4">
                 <motion.h1
-                    initial={{ opacity: 0, x: -100 }}
+                    initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, ease: "easeIn" }}
                     className="text-4xl md:text-6xl font-bold leading-tight text-gray-300"
