@@ -59,7 +59,7 @@ export default function Footer() {
                 <div className="border-t border-cyan-400/20 my-10" />
 
                 {/* Bottom */}
-                <div className="flex flex-col md:flex-row justify-between items-center text-slate-300 text-sm">
+                <div className="flex flex-col md:flex-row justify-between items-center text-cyan-40 text-sm">
                     <p className="text-center md:text-left">
                         © {new Date().getFullYear()} PropertyHub. All rights reserved.
                     </p>
